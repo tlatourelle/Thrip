@@ -17,7 +17,7 @@ Thrip Conference Manager: Session List
     <p>
       ${Session.Description}
     </p>
-    <p>
+    <p if="Session.ScheduledSessions.Count > 0">
       Currently Scheduled in:
       <ul>
         <li each="var ScheduledSession in Session.ScheduledSessions">

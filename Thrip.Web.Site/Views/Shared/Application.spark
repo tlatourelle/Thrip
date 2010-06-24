@@ -8,6 +8,9 @@
 		<link rel="stylesheet" href="http://cdn.cloudfiles.mosso.com/c29152/BlueprintScreen.css" type="text/css" />
 		<link rel="stylesheet" href="http://cdn.cloudfiles.mosso.com/c29152/BlueprintIE.css" type="text/css" />
 		<script type="javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<style>
+			
+		</style>
 	</head>
 	<body>
 		<div class="container" id="BodyContainer">
