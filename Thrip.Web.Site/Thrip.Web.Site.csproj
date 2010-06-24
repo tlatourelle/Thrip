@@ -83,6 +83,7 @@
     </Compile>
     <Compile Include="Models\BaseViewModel.cs" />
     <Compile Include="Models\ConferenceIndexViewModel.cs" />
+    <Compile Include="Models\SessionListViewModel.cs" />
     <Compile Include="PageController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
@@ -127,8 +128,11 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>T4MVC.cs</LastGenOutput>
     </None>
-    <None Include="Views\Conference\Index.spark" />
+    <None Include="Views\Conference\Index.spark">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Views\Page\Home.spark" />
+    <None Include="Views\Session\List.spark" />
     <None Include="Views\Shared\Application.spark" />
   </ItemGroup>
   <ItemGroup>

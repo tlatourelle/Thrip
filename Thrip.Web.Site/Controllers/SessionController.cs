@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Thrip.Web.Site.Models;
 
 namespace Thrip.Web.Site.Controllers
 {
@@ -14,8 +15,11 @@ namespace Thrip.Web.Site.Controllers
         public ActionResult List(Guid id)
         {
             //id is the conference id
-            var _conference = Datacon
-            return View();
+            var _conference = DataContext.Conferences.SingleOrDefault(c => c.Id == id);
+            var _viewModel = new SessionListViewModel();
+            _viewModel.Conference = _conference;
+            _viewModel.Sessions = _conference.Sessions.ToList();
+            return View(_viewModel);
         }
 
     }
