@@ -3,3 +3,8 @@ C:\Dev\Thrip\Thrip.DataServices\bin\Thrip.DataServices.pdb
 C:\Dev\Thrip\Thrip.DataServices\obj\Debug\ResolveAssemblyReference.cache
 C:\Dev\Thrip\Thrip.DataServices\obj\Debug\Thrip.DataServices.dll
 C:\Dev\Thrip\Thrip.DataServices\obj\Debug\Thrip.DataServices.pdb
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.DataServices\bin\Thrip.DataServices.dll
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.DataServices\bin\Thrip.DataServices.pdb
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.DataServices\obj\Debug\ResolveAssemblyReference.cache
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.DataServices\obj\Debug\Thrip.DataServices.dll
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.DataServices\obj\Debug\Thrip.DataServices.pdb

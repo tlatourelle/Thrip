@@ -4,3 +4,9 @@ C:\Dev\Thrip\Thrip.Model\obj\Debug\ResolveAssemblyReference.cache
 C:\Dev\Thrip\Thrip.Model\obj\Debug\Thrip.Model.dll
 C:\Dev\Thrip\Thrip.Model\obj\Debug\Thrip.Model.pdb
 C:\Dev\Thrip\Thrip.Model\bin\Debug\Thrip.Model.dll.config
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Model\bin\Debug\Thrip.Model.dll.config
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Model\bin\Debug\Thrip.Model.dll
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Model\bin\Debug\Thrip.Model.pdb
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Model\obj\Debug\ResolveAssemblyReference.cache
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Model\obj\Debug\Thrip.Model.dll
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Model\obj\Debug\Thrip.Model.pdb

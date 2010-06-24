@@ -1,0 +1,14 @@
+﻿<use master="Application" />
+<content name="PageTitle">
+Thrip Conference Manager
+</content>
+<content name="Header">
+<h1>Thrip Conference Manager</h1>
+</content>
+<content name="MainContent">
+<p>Welcome to Thrip</p>
+<p><a href="/Conference/Index">Conference List</a></p>
+</content>
+<content name="Footer">
+Thrip Conference Manager
+</content>

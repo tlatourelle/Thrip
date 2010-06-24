@@ -9,3 +9,16 @@ C:\Dev\Thrip\Thrip.Web.Site\bin\System.Web.Mvc.xml
 C:\Dev\Thrip\Thrip.Web.Site\obj\Debug\ResolveAssemblyReference.cache
 C:\Dev\Thrip\Thrip.Web.Site\obj\Debug\Thrip.Web.Site.dll
 C:\Dev\Thrip\Thrip.Web.Site\obj\Debug\Thrip.Web.Site.pdb
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Web.Site\bin\Thrip.Web.Site.dll
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Web.Site\bin\Thrip.Web.Site.pdb
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Web.Site\bin\Spark.dll
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Web.Site\bin\Spark.Web.Mvc.dll
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Web.Site\bin\System.Web.Mvc.dll
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Web.Site\bin\Spark.pdb
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Web.Site\bin\Spark.Web.Mvc.pdb
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Web.Site\bin\System.Web.Mvc.xml
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Web.Site\obj\Debug\ResolveAssemblyReference.cache
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Web.Site\obj\Debug\Thrip.Web.Site.dll
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Web.Site\obj\Debug\Thrip.Web.Site.pdb
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Web.Site\bin\Thrip.Model.dll
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Web.Site\bin\Thrip.Model.pdb

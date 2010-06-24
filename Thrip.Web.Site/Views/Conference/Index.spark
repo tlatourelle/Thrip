@@ -1,0 +1,20 @@
+﻿<viewdata model="Thrip.Web.Site.Models.ConferenceIndexViewModel"/>
+<use master="Application" />
+<content name="PageTitle">
+Thrip Conference Manager: Upcoming Conferences
+</content>
+<content name="Header">
+<h1>Upcoming Conferences</h1>
+</content>
+<content name="MainContent">
+  <div each="var conference in Model.Conferences">
+    <h2>${conference.Name}</h2>
+    <p>${conference.Description}</p>
+    <p>
+      <a href="/Session/List/${conference.Id}">Sessions</a>
+    </p>
+	</div>
+</content>
+<content name="Footer">
+Thrip Conference Manager
+</content>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title>
+			<use content="PageTitle"/>
+		</title>
+		<link rel="stylesheet" href="http://cdn.cloudfiles.mosso.com/c29152/BlueprintScreen.css" type="text/css" />
+		<link rel="stylesheet" href="http://cdn.cloudfiles.mosso.com/c29152/BlueprintIE.css" type="text/css" />
+		<script type="javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	</head>
+	<body>
+		<div class="container" id="BodyContainer">
+			<div  class="span-24 last" id="HeaderContainer">
+				<div id="Header">
+					<use content="Header"/>
+				</div>
+			</div>
+					
+			<div class="span-24 last" id="MainContentContainer">
+				<div id="MainContent">
+					<use content="MainContent"/>
+				</div>
+			</div>
+			
+			
+			<div class="span-24 last" id="PageFooterContainer">
+				<div id="Footer">				
+					<use content="Footer"/>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

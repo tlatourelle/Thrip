@@ -131,6 +131,8 @@ namespace Thrip.Sandbox
 
         static void CreateSampleSessions(ThripEntities dataContext)
         {
+            var _conference = dataContext.Conferences.SingleOrDefault(c => c.Name == "MVC Springboard");
+
             var _session = new Session();
 
             _session.Id = Guid.NewGuid();
@@ -139,7 +141,7 @@ namespace Thrip.Sandbox
             _session.Tags = "mvc,intro";
             var _facilitator = dataContext.People.Where(p => p.LastName == "Wynia").SingleOrDefault();
             _session.Facilitators.Add(_facilitator);
-
+            _session.Conferences.Add(_conference);
             dataContext.Sessions.AddObject(_session);
 
             _session = new Session();
@@ -149,7 +151,7 @@ namespace Thrip.Sandbox
             _session.Description = "";
             _session.Tags = "keynote";
             _session.Facilitators.Add(dataContext.People.Where(p => p.LastName == "Lozano").SingleOrDefault());
-
+            _session.Conferences.Add(_conference);
             dataContext.Sessions.AddObject(_session);
 
             _session = new Session();
@@ -159,7 +161,7 @@ namespace Thrip.Sandbox
             _session.Description = "From Web forms to Spark forms ";
             _session.Tags = "mvc,Spark";
             _session.Facilitators.Add(dataContext.People.Where(p => p.LastName == "LaTourelle").SingleOrDefault());
-
+            _session.Conferences.Add(_conference);
             dataContext.Sessions.AddObject(_session);
 
             _session = new Session();
@@ -169,7 +171,7 @@ namespace Thrip.Sandbox
             _session.Description = "Getting MVC hooked up to EF";
             _session.Tags = "mvc,Entity Framework";
             _session.Facilitators.Add(dataContext.People.Where(p => p.LastName == "Tucker").SingleOrDefault());
-
+            _session.Conferences.Add(_conference);
             dataContext.Sessions.AddObject(_session);
 
         }

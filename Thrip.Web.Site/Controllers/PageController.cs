@@ -6,12 +6,12 @@ using System.Web.Mvc;
 
 namespace Thrip.Web.Site.Controllers
 {
-    public class PageController : Controller
+    public partial class PageController : BaseController
     {
         //
         // GET: /Page/
 
-        public ActionResult Home()
+        public virtual ActionResult Home()
         {
             return View();
         }

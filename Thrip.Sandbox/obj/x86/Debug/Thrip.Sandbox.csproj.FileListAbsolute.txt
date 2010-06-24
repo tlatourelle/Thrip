@@ -6,3 +6,11 @@ C:\Dev\Thrip\Thrip.Sandbox\obj\x86\Debug\Thrip.Sandbox.exe
 C:\Dev\Thrip\Thrip.Sandbox\obj\x86\Debug\Thrip.Sandbox.pdb
 C:\Dev\Thrip\Thrip.Sandbox\bin\Debug\Thrip.Model.dll
 C:\Dev\Thrip\Thrip.Sandbox\bin\Debug\Thrip.Model.pdb
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Sandbox\bin\Debug\Thrip.Sandbox.exe.config
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Sandbox\obj\x86\Debug\Thrip.Sandbox.exe
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Sandbox\obj\x86\Debug\Thrip.Sandbox.pdb
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Sandbox\bin\Debug\Thrip.Sandbox.exe
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Sandbox\bin\Debug\Thrip.Sandbox.pdb
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Sandbox\bin\Debug\Thrip.Model.dll
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Sandbox\bin\Debug\Thrip.Model.pdb
+D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Sandbox\obj\x86\Debug\ResolveAssemblyReference.cache

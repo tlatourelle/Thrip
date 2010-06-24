@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Spark.Web.Mvc;
 
 namespace Thrip.Web.Site
 {
@@ -27,7 +28,7 @@ namespace Thrip.Web.Site
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-
+            ViewEngines.Engines.Add(new SparkViewFactory());
             RegisterRoutes(RouteTable.Routes);
         }
     }
