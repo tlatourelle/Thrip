@@ -4,22 +4,555 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Thrip.Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <EntityContainer Name="ThripModelStoreContainer" />
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="Thrip.Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ThripModelStoreContainer">
+    <EntitySet Name="People" EntityType="Thrip.Model.Store.People" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Conferences" EntityType="Thrip.Model.Store.Conferences" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sessions" EntityType="Thrip.Model.Store.Sessions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Locations" EntityType="Thrip.Model.Store.Locations" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TimeSlots" EntityType="Thrip.Model.Store.TimeSlots" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Bookmarks" EntityType="Thrip.Model.Store.Bookmarks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ScheduledSessions" EntityType="Thrip.Model.Store.ScheduledSessions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Itineraries" EntityType="Thrip.Model.Store.Itineraries" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ConferenceSession" EntityType="Thrip.Model.Store.ConferenceSession" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ItineraryScheduledSession" EntityType="Thrip.Model.Store.ItineraryScheduledSession" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="SessionScheduledSession" Association="Thrip.Model.Store.SessionScheduledSession">
+      <End Role="Session" EntitySet="Sessions" />
+      <End Role="ScheduledSession" EntitySet="ScheduledSessions" />
+    </AssociationSet>
+    <AssociationSet Name="TimeSlotScheduledSession" Association="Thrip.Model.Store.TimeSlotScheduledSession">
+      <End Role="TimeSlot" EntitySet="TimeSlots" />
+      <End Role="ScheduledSession" EntitySet="ScheduledSessions" />
+    </AssociationSet>
+    <AssociationSet Name="LocationScheduledSession" Association="Thrip.Model.Store.LocationScheduledSession">
+      <End Role="Location" EntitySet="Locations" />
+      <End Role="ScheduledSession" EntitySet="ScheduledSessions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConferenceSession_Conference" Association="Thrip.Model.Store.FK_ConferenceSession_Conference">
+      <End Role="Conference" EntitySet="Conferences" />
+      <End Role="ConferenceSession" EntitySet="ConferenceSession" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConferenceSession_Session" Association="Thrip.Model.Store.FK_ConferenceSession_Session">
+      <End Role="Session" EntitySet="Sessions" />
+      <End Role="ConferenceSession" EntitySet="ConferenceSession" />
+    </AssociationSet>
+    <AssociationSet Name="PersonBookmark" Association="Thrip.Model.Store.PersonBookmark">
+      <End Role="Person" EntitySet="People" />
+      <End Role="Bookmark" EntitySet="Bookmarks" />
+    </AssociationSet>
+    <AssociationSet Name="BookmarkSession" Association="Thrip.Model.Store.BookmarkSession">
+      <End Role="Bookmark" EntitySet="Bookmarks" />
+      <End Role="Session" EntitySet="Sessions" />
+    </AssociationSet>
+    <AssociationSet Name="PersonItinerary" Association="Thrip.Model.Store.PersonItinerary">
+      <End Role="Itinerary" EntitySet="Itineraries" />
+      <End Role="Person" EntitySet="People" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItineraryScheduledSession_Itinerary" Association="Thrip.Model.Store.FK_ItineraryScheduledSession_Itinerary">
+      <End Role="Itinerary" EntitySet="Itineraries" />
+      <End Role="ItineraryScheduledSession" EntitySet="ItineraryScheduledSession" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItineraryScheduledSession_ScheduledSession" Association="Thrip.Model.Store.FK_ItineraryScheduledSession_ScheduledSession">
+      <End Role="ScheduledSession" EntitySet="ScheduledSessions" />
+      <End Role="ItineraryScheduledSession" EntitySet="ItineraryScheduledSession" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="People">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Conferences">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sessions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Locations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TimeSlots">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bookmarks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Session_Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ScheduledSessions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SessionId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TimeSlotId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="LocationId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Itineraries">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Person_Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ConferenceSession">
+    <Key>
+      <PropertyRef Name="Conferences_Id" />
+      <PropertyRef Name="Sessions_Id" />
+    </Key>
+    <Property Name="Conferences_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Sessions_Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ItineraryScheduledSession">
+    <Key>
+      <PropertyRef Name="Itineraries_Id" />
+      <PropertyRef Name="ScheduledSessions_Id" />
+    </Key>
+    <Property Name="Itineraries_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ScheduledSessions_Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <Association Name="SessionScheduledSession">
+    <End Role="Session" Type="Thrip.Model.Store.Sessions" Multiplicity="1" />
+    <End Role="ScheduledSession" Type="Thrip.Model.Store.ScheduledSessions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Session">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ScheduledSession">
+        <PropertyRef Name="SessionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TimeSlotScheduledSession">
+    <End Role="TimeSlot" Type="Thrip.Model.Store.TimeSlots" Multiplicity="1" />
+    <End Role="ScheduledSession" Type="Thrip.Model.Store.ScheduledSessions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TimeSlot">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ScheduledSession">
+        <PropertyRef Name="TimeSlotId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LocationScheduledSession">
+    <End Role="Location" Type="Thrip.Model.Store.Locations" Multiplicity="1" />
+    <End Role="ScheduledSession" Type="Thrip.Model.Store.ScheduledSessions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ScheduledSession">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PersonBookmark">
+    <End Role="Person" Type="Thrip.Model.Store.People" Multiplicity="1" />
+    <End Role="Bookmark" Type="Thrip.Model.Store.Bookmarks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Bookmark">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BookmarkSession">
+    <End Role="Bookmark" Type="Thrip.Model.Store.Bookmarks" Multiplicity="*" />
+    <End Role="Session" Type="Thrip.Model.Store.Sessions" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Session">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Bookmark">
+        <PropertyRef Name="Session_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PersonItinerary">
+    <End Role="Itinerary" Type="Thrip.Model.Store.Itineraries" Multiplicity="*" />
+    <End Role="Person" Type="Thrip.Model.Store.People" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Itinerary">
+        <PropertyRef Name="Person_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConferenceSession_Conference">
+    <End Role="Conference" Type="Thrip.Model.Store.Conferences" Multiplicity="1" />
+    <End Role="ConferenceSession" Type="Thrip.Model.Store.ConferenceSession" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Conference">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ConferenceSession">
+        <PropertyRef Name="Conferences_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConferenceSession_Session">
+    <End Role="ConferenceSession" Type="Thrip.Model.Store.ConferenceSession" Multiplicity="*" />
+    <End Role="Session" Type="Thrip.Model.Store.Sessions" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Session">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ConferenceSession">
+        <PropertyRef Name="Sessions_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItineraryScheduledSession_Itinerary">
+    <End Role="Itinerary" Type="Thrip.Model.Store.Itineraries" Multiplicity="1" />
+    <End Role="ItineraryScheduledSession" Type="Thrip.Model.Store.ItineraryScheduledSession" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Itinerary">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItineraryScheduledSession">
+        <PropertyRef Name="Itineraries_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItineraryScheduledSession_ScheduledSession">
+    <End Role="ItineraryScheduledSession" Type="Thrip.Model.Store.ItineraryScheduledSession" Multiplicity="*" />
+    <End Role="ScheduledSession" Type="Thrip.Model.Store.ScheduledSessions" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ScheduledSession">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItineraryScheduledSession">
+        <PropertyRef Name="ScheduledSessions_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Thrip.Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-        <EntityContainer Name="ThripEntities" annotation:LazyLoadingEnabled="true" />
+        <EntityContainer Name="ThripEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="People" EntityType="Thrip.Model.Person" />
+          <EntitySet Name="Conferences" EntityType="Thrip.Model.Conference" />
+          <EntitySet Name="Sessions" EntityType="Thrip.Model.Session" />
+          <EntitySet Name="Locations" EntityType="Thrip.Model.Location" />
+          <EntitySet Name="TimeSlots" EntityType="Thrip.Model.TimeSlot" />
+          <EntitySet Name="Bookmarks" EntityType="Thrip.Model.Bookmark" />
+          <EntitySet Name="ScheduledSessions" EntityType="Thrip.Model.ScheduledSession" />
+          <AssociationSet Name="SessionScheduledSession" Association="Thrip.Model.SessionScheduledSession">
+            <End Role="Session" EntitySet="Sessions" />
+            <End Role="ScheduledSession" EntitySet="ScheduledSessions" />
+          </AssociationSet>
+          <AssociationSet Name="TimeSlotScheduledSession" Association="Thrip.Model.TimeSlotScheduledSession">
+            <End Role="TimeSlot" EntitySet="TimeSlots" />
+            <End Role="ScheduledSession" EntitySet="ScheduledSessions" />
+          </AssociationSet>
+          <AssociationSet Name="LocationScheduledSession" Association="Thrip.Model.LocationScheduledSession">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="ScheduledSession" EntitySet="ScheduledSessions" />
+          </AssociationSet>
+          <AssociationSet Name="ConferenceSession" Association="Thrip.Model.ConferenceSession">
+            <End Role="Conference" EntitySet="Conferences" />
+            <End Role="Session" EntitySet="Sessions" />
+          </AssociationSet>
+          <AssociationSet Name="PersonBookmark" Association="Thrip.Model.PersonBookmark">
+            <End Role="Person" EntitySet="People" />
+            <End Role="Bookmark" EntitySet="Bookmarks" />
+          </AssociationSet>
+          <AssociationSet Name="BookmarkSession" Association="Thrip.Model.BookmarkSession">
+            <End Role="Bookmark" EntitySet="Bookmarks" />
+            <End Role="Session" EntitySet="Sessions" />
+          </AssociationSet>
+          <EntitySet Name="Itineraries" EntityType="Thrip.Model.Itinerary" />
+          <AssociationSet Name="PersonItinerary" Association="Thrip.Model.PersonItinerary">
+            <End Role="Itinerary" EntitySet="Itineraries" />
+            <End Role="Person" EntitySet="People" />
+          </AssociationSet>
+          <AssociationSet Name="ItineraryScheduledSession" Association="Thrip.Model.ItineraryScheduledSession">
+            <End Role="Itinerary" EntitySet="Itineraries" />
+            <End Role="ScheduledSession" EntitySet="ScheduledSessions" />
+          </AssociationSet>
+          <AssociationSet Name="PersonSession" Association="Thrip.Model.PersonSession">
+            <End Role="Person" EntitySet="People" />
+            <End Role="Session" EntitySet="Sessions" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FirstName" Nullable="false" />
+          <Property Type="String" Name="LastName" Nullable="false" />
+          <Property Type="String" Name="Email" Nullable="false" />
+          <NavigationProperty Name="Bookmarks" Relationship="Thrip.Model.PersonBookmark" FromRole="Person" ToRole="Bookmark" />
+          <NavigationProperty Name="Itineraries" Relationship="Thrip.Model.PersonItinerary" FromRole="Person" ToRole="Itinerary" />
+          <NavigationProperty Name="Sessions" Relationship="Thrip.Model.PersonSession" FromRole="Person" ToRole="Session" />
+        </EntityType>
+        <EntityType Name="Conference">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Sessions" Relationship="Thrip.Model.ConferenceSession" FromRole="Conference" ToRole="Session" />
+        </EntityType>
+        <EntityType Name="Session">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="ScheduledSessions" Relationship="Thrip.Model.SessionScheduledSession" FromRole="Session" ToRole="ScheduledSession" />
+          <NavigationProperty Name="Conferences" Relationship="Thrip.Model.ConferenceSession" FromRole="Session" ToRole="Conference" />
+          <NavigationProperty Name="Bookmark" Relationship="Thrip.Model.BookmarkSession" FromRole="Session" ToRole="Bookmark" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="String" Name="Tags" Nullable="false" />
+          <NavigationProperty Name="Facilitators" Relationship="Thrip.Model.PersonSession" FromRole="Session" ToRole="Person" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="ScheduledSessions" Relationship="Thrip.Model.LocationScheduledSession" FromRole="Location" ToRole="ScheduledSession" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TimeSlot">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="ScheduledSessions" Relationship="Thrip.Model.TimeSlotScheduledSession" FromRole="TimeSlot" ToRole="ScheduledSession" />
+          <Property Type="DateTime" Name="StartDate" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Type="DateTime" Name="EndDate" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bookmark">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Person" Relationship="Thrip.Model.PersonBookmark" FromRole="Bookmark" ToRole="Person" />
+          <Property Type="Guid" Name="PersonId" Nullable="false" />
+          <NavigationProperty Name="Session" Relationship="Thrip.Model.BookmarkSession" FromRole="Bookmark" ToRole="Session" />
+        </EntityType>
+        <EntityType Name="ScheduledSession">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Session" Relationship="Thrip.Model.SessionScheduledSession" FromRole="ScheduledSession" ToRole="Session" />
+          <Property Type="Guid" Name="SessionId" Nullable="false" />
+          <NavigationProperty Name="TimeSlot" Relationship="Thrip.Model.TimeSlotScheduledSession" FromRole="ScheduledSession" ToRole="TimeSlot" />
+          <Property Type="Guid" Name="TimeSlotId" Nullable="false" />
+          <NavigationProperty Name="Location" Relationship="Thrip.Model.LocationScheduledSession" FromRole="ScheduledSession" ToRole="Location" />
+          <Property Type="Guid" Name="LocationId" Nullable="false" />
+          <NavigationProperty Name="Itineraries" Relationship="Thrip.Model.ItineraryScheduledSession" FromRole="ScheduledSession" ToRole="Itinerary" />
+        </EntityType>
+        <Association Name="SessionScheduledSession">
+          <End Type="Thrip.Model.Session" Role="Session" Multiplicity="1" />
+          <End Type="Thrip.Model.ScheduledSession" Role="ScheduledSession" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Session">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ScheduledSession">
+              <PropertyRef Name="SessionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TimeSlotScheduledSession">
+          <End Type="Thrip.Model.TimeSlot" Role="TimeSlot" Multiplicity="1" />
+          <End Type="Thrip.Model.ScheduledSession" Role="ScheduledSession" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TimeSlot">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ScheduledSession">
+              <PropertyRef Name="TimeSlotId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LocationScheduledSession">
+          <End Type="Thrip.Model.Location" Role="Location" Multiplicity="1" />
+          <End Type="Thrip.Model.ScheduledSession" Role="ScheduledSession" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ScheduledSession">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ConferenceSession">
+          <End Type="Thrip.Model.Conference" Role="Conference" Multiplicity="*" />
+          <End Type="Thrip.Model.Session" Role="Session" Multiplicity="*" />
+        </Association>
+        <Association Name="PersonBookmark">
+          <End Type="Thrip.Model.Person" Role="Person" Multiplicity="1" />
+          <End Type="Thrip.Model.Bookmark" Role="Bookmark" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Bookmark">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BookmarkSession">
+          <End Type="Thrip.Model.Bookmark" Role="Bookmark" Multiplicity="1" />
+          <End Type="Thrip.Model.Session" Role="Session" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Itinerary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Person" Relationship="Thrip.Model.PersonItinerary" FromRole="Itinerary" ToRole="Person" />
+          <NavigationProperty Name="ScheduledSessions" Relationship="Thrip.Model.ItineraryScheduledSession" FromRole="Itinerary" ToRole="ScheduledSession" />
+          <Property Type="String" Name="Name" Nullable="false" />
+        </EntityType>
+        <Association Name="PersonItinerary">
+          <End Type="Thrip.Model.Itinerary" Role="Itinerary" Multiplicity="*" />
+          <End Type="Thrip.Model.Person" Role="Person" Multiplicity="1" />
+        </Association>
+        <Association Name="ItineraryScheduledSession">
+          <End Type="Thrip.Model.Itinerary" Role="Itinerary" Multiplicity="*" />
+          <End Type="Thrip.Model.ScheduledSession" Role="ScheduledSession" Multiplicity="*" />
+        </Association>
+        <Association Name="PersonSession">
+          <End Type="Thrip.Model.Person" Role="Person" Multiplicity="*" />
+          <End Type="Thrip.Model.Session" Role="Session" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ThripModelStoreContainer" CdmEntityContainer="ThripEntities" />
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ThripModelStoreContainer" CdmEntityContainer="ThripEntities">
+    <EntitySetMapping Name="People">
+      <EntityTypeMapping TypeName="IsTypeOf(Thrip.Model.Person)">
+        <MappingFragment StoreEntitySet="People">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Conferences">
+      <EntityTypeMapping TypeName="IsTypeOf(Thrip.Model.Conference)">
+        <MappingFragment StoreEntitySet="Conferences">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sessions">
+      <EntityTypeMapping TypeName="IsTypeOf(Thrip.Model.Session)">
+        <MappingFragment StoreEntitySet="Sessions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="IsTypeOf(Thrip.Model.Location)">
+        <MappingFragment StoreEntitySet="Locations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TimeSlots">
+      <EntityTypeMapping TypeName="IsTypeOf(Thrip.Model.TimeSlot)">
+        <MappingFragment StoreEntitySet="TimeSlots">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bookmarks">
+      <EntityTypeMapping TypeName="IsTypeOf(Thrip.Model.Bookmark)">
+        <MappingFragment StoreEntitySet="Bookmarks">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScheduledSessions">
+      <EntityTypeMapping TypeName="IsTypeOf(Thrip.Model.ScheduledSession)">
+        <MappingFragment StoreEntitySet="ScheduledSessions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+          <ScalarProperty Name="TimeSlotId" ColumnName="TimeSlotId" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Itineraries">
+      <EntityTypeMapping TypeName="IsTypeOf(Thrip.Model.Itinerary)">
+        <MappingFragment StoreEntitySet="Itineraries">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ConferenceSession" TypeName="Thrip.Model.ConferenceSession" StoreEntitySet="ConferenceSession">
+      <EndProperty Name="Conference">
+        <ScalarProperty Name="Id" ColumnName="Conferences_Id" />
+      </EndProperty>
+      <EndProperty Name="Session">
+        <ScalarProperty Name="Id" ColumnName="Sessions_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BookmarkSession" TypeName="Thrip.Model.BookmarkSession" StoreEntitySet="Bookmarks">
+      <EndProperty Name="Session">
+        <ScalarProperty Name="Id" ColumnName="Session_Id" />
+      </EndProperty>
+      <EndProperty Name="Bookmark">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PersonItinerary" TypeName="Thrip.Model.PersonItinerary" StoreEntitySet="Itineraries">
+      <EndProperty Name="Person">
+        <ScalarProperty Name="Id" ColumnName="Person_Id" />
+      </EndProperty>
+      <EndProperty Name="Itinerary">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ItineraryScheduledSession" TypeName="Thrip.Model.ItineraryScheduledSession" StoreEntitySet="ItineraryScheduledSession">
+      <EndProperty Name="Itinerary">
+        <ScalarProperty Name="Id" ColumnName="Itineraries_Id" />
+      </EndProperty>
+      <EndProperty Name="ScheduledSession">
+        <ScalarProperty Name="Id" ColumnName="ScheduledSessions_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
@@ -37,7 +570,72 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="Thrip.Model" />
+      <Diagram Name="Thrip.Model" >
+        <EntityTypeShape EntityType="Thrip.Model.Person" Width="1.5" PointX="0.75" PointY="5.125" Height="1.9802864583333335" />
+        <EntityTypeShape EntityType="Thrip.Model.Conference" Width="1.5" PointX="0.75" PointY="1.375" Height="1.4033821614583335" />
+        <EntityTypeShape EntityType="Thrip.Model.Session" Width="1.5" PointX="3.125" PointY="1.25" Height="2.5571907552083339" />
+        <EntityTypeShape EntityType="Thrip.Model.Location" Width="1.5" PointX="4.5" PointY="6.625" Height="1.7879850260416657" />
+        <EntityTypeShape EntityType="Thrip.Model.TimeSlot" Width="1.5" PointX="8.125" PointY="6" Height="1.9802864583333335" />
+        <EntityTypeShape EntityType="Thrip.Model.Bookmark" Width="1.5" PointX="6.375" PointY="5" Height="1.7879850260416657" />
+        <EntityTypeShape EntityType="Thrip.Model.ScheduledSession" Width="1.5" PointX="5.25" PointY="1" Height="2.3648893229166674" />
+        <AssociationConnector Association="Thrip.Model.SessionScheduledSession">
+          <ConnectorPoint PointX="4.625" PointY="2.4035953776041667" />
+          <ConnectorPoint PointX="5.25" PointY="2.4035953776041667" />
+        </AssociationConnector>
+        <AssociationConnector Association="Thrip.Model.TimeSlotScheduledSession">
+          <ConnectorPoint PointX="8.53125" PointY="6" />
+          <ConnectorPoint PointX="8.53125" PointY="1.96875" />
+          <ConnectorPoint PointX="6.75" PointY="1.96875" />
+        </AssociationConnector>
+        <AssociationConnector Association="Thrip.Model.LocationScheduledSession">
+          <ConnectorPoint PointX="5.625" PointY="6.625" />
+          <ConnectorPoint PointX="5.625" PointY="3.5571907552083331" />
+        </AssociationConnector>
+        <AssociationConnector Association="Thrip.Model.ConferenceSession">
+          <ConnectorPoint PointX="2.25" PointY="2.0766910807291667" />
+          <ConnectorPoint PointX="3.125" PointY="2.0766910807291667" />
+        </AssociationConnector>
+        <AssociationConnector Association="Thrip.Model.PersonBookmark">
+          <ConnectorPoint PointX="2.25" PointY="5.8125" />
+          <ConnectorPoint PointX="3.6979166666666665" PointY="5.8124999999999991" />
+          <ConnectorPoint PointX="3.8645833333333335" PointY="5.8125" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="5.8124999999999991" />
+          <ConnectorPoint PointX="5.708333333333333" PointY="5.8125" />
+          <ConnectorPoint PointX="6.375" PointY="5.8125" />
+        </AssociationConnector>
+        <AssociationConnector Association="Thrip.Model.BookmarkSession">
+          <ConnectorPoint PointX="7.34375" PointY="5" />
+          <ConnectorPoint PointX="7.34375" PointY="3.7134407552083335" />
+          <ConnectorPoint PointX="5.708333333333333" PointY="3.7134407552083331" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="3.7134407552083335" />
+          <ConnectorPoint PointX="4.625" PointY="3.7134407552083335" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Thrip.Model.Itinerary" Width="1.5" PointX="9" PointY="3" Height="1.7879850260416657" />
+        <AssociationConnector Association="Thrip.Model.PersonItinerary">
+          <ConnectorPoint PointX="9" PointY="4.328837890625" />
+          <ConnectorPoint PointX="8.6145833333333339" PointY="4.3288378906249987" />
+          <ConnectorPoint PointX="8.4479166666666661" PointY="4.328837890625" />
+          <ConnectorPoint PointX="7.427083333333333" PointY="4.3288378906249987" />
+          <ConnectorPoint PointX="7.260416666666667" PointY="4.328837890625" />
+          <ConnectorPoint PointX="5.708333333333333" PointY="4.3288378906249987" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="4.328837890625" />
+          <ConnectorPoint PointX="3.8645833333333335" PointY="4.3288378906249987" />
+          <ConnectorPoint PointX="3.6979166666666665" PointY="4.328837890625" />
+          <ConnectorPoint PointX="1.5" PointY="4.328837890625" />
+          <ConnectorPoint PointX="1.5" PointY="5.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="Thrip.Model.ItineraryScheduledSession">
+          <ConnectorPoint PointX="9" PointY="3.2785953776041667" />
+          <ConnectorPoint PointX="8.6145833333333339" PointY="3.2785953776041663" />
+          <ConnectorPoint PointX="8.4479166666666661" PointY="3.2785953776041667" />
+          <ConnectorPoint PointX="6.75" PointY="3.2785953776041667" />
+        </AssociationConnector>
+        <AssociationConnector Association="Thrip.Model.PersonSession">
+          <ConnectorPoint PointX="2.25" PointY="6.2187525" />
+          <ConnectorPoint PointX="3.78125" PointY="6.2187525" />
+          <ConnectorPoint PointX="3.78125" PointY="3.8071907552083331" />
+        </AssociationConnector>
+      </Diagram>
     </Diagrams>
   </Designer>
 </edmx:Edmx>

@@ -16,6 +16,19 @@ using System.Xml.Serialization;
 using System.Runtime.Serialization;
 
 [assembly: EdmSchemaAttribute()]
+#region EDM Relationship Metadata
+
+[assembly: EdmRelationshipAttribute("Thrip.Model", "SessionScheduledSession", "Session", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Thrip.Model.Session), "ScheduledSession", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.ScheduledSession), true)]
+[assembly: EdmRelationshipAttribute("Thrip.Model", "TimeSlotScheduledSession", "TimeSlot", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Thrip.Model.TimeSlot), "ScheduledSession", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.ScheduledSession), true)]
+[assembly: EdmRelationshipAttribute("Thrip.Model", "LocationScheduledSession", "Location", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Thrip.Model.Location), "ScheduledSession", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.ScheduledSession), true)]
+[assembly: EdmRelationshipAttribute("Thrip.Model", "ConferenceSession", "Conference", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.Conference), "Session", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.Session))]
+[assembly: EdmRelationshipAttribute("Thrip.Model", "PersonBookmark", "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Thrip.Model.Person), "Bookmark", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.Bookmark), true)]
+[assembly: EdmRelationshipAttribute("Thrip.Model", "BookmarkSession", "Bookmark", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Thrip.Model.Bookmark), "Session", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Thrip.Model.Session))]
+[assembly: EdmRelationshipAttribute("Thrip.Model", "PersonItinerary", "Itinerary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.Itinerary), "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Thrip.Model.Person))]
+[assembly: EdmRelationshipAttribute("Thrip.Model", "ItineraryScheduledSession", "Itinerary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.Itinerary), "ScheduledSession", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.ScheduledSession))]
+[assembly: EdmRelationshipAttribute("Thrip.Model", "PersonSession", "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.Person), "Session", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.Session))]
+
+#endregion
 
 namespace Thrip.Model
 {
@@ -63,10 +76,1599 @@ namespace Thrip.Model
     
         #endregion
     
+        #region ObjectSet Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Person> People
+        {
+            get
+            {
+                if ((_People == null))
+                {
+                    _People = base.CreateObjectSet<Person>("People");
+                }
+                return _People;
+            }
+        }
+        private ObjectSet<Person> _People;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Conference> Conferences
+        {
+            get
+            {
+                if ((_Conferences == null))
+                {
+                    _Conferences = base.CreateObjectSet<Conference>("Conferences");
+                }
+                return _Conferences;
+            }
+        }
+        private ObjectSet<Conference> _Conferences;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Session> Sessions
+        {
+            get
+            {
+                if ((_Sessions == null))
+                {
+                    _Sessions = base.CreateObjectSet<Session>("Sessions");
+                }
+                return _Sessions;
+            }
+        }
+        private ObjectSet<Session> _Sessions;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Location> Locations
+        {
+            get
+            {
+                if ((_Locations == null))
+                {
+                    _Locations = base.CreateObjectSet<Location>("Locations");
+                }
+                return _Locations;
+            }
+        }
+        private ObjectSet<Location> _Locations;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<TimeSlot> TimeSlots
+        {
+            get
+            {
+                if ((_TimeSlots == null))
+                {
+                    _TimeSlots = base.CreateObjectSet<TimeSlot>("TimeSlots");
+                }
+                return _TimeSlots;
+            }
+        }
+        private ObjectSet<TimeSlot> _TimeSlots;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Bookmark> Bookmarks
+        {
+            get
+            {
+                if ((_Bookmarks == null))
+                {
+                    _Bookmarks = base.CreateObjectSet<Bookmark>("Bookmarks");
+                }
+                return _Bookmarks;
+            }
+        }
+        private ObjectSet<Bookmark> _Bookmarks;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<ScheduledSession> ScheduledSessions
+        {
+            get
+            {
+                if ((_ScheduledSessions == null))
+                {
+                    _ScheduledSessions = base.CreateObjectSet<ScheduledSession>("ScheduledSessions");
+                }
+                return _ScheduledSessions;
+            }
+        }
+        private ObjectSet<ScheduledSession> _ScheduledSessions;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Itinerary> Itineraries
+        {
+            get
+            {
+                if ((_Itineraries == null))
+                {
+                    _Itineraries = base.CreateObjectSet<Itinerary>("Itineraries");
+                }
+                return _Itineraries;
+            }
+        }
+        private ObjectSet<Itinerary> _Itineraries;
+
+        #endregion
+        #region AddTo Methods
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the People EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToPeople(Person person)
+        {
+            base.AddObject("People", person);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Conferences EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToConferences(Conference conference)
+        {
+            base.AddObject("Conferences", conference);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Sessions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToSessions(Session session)
+        {
+            base.AddObject("Sessions", session);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Locations EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToLocations(Location location)
+        {
+            base.AddObject("Locations", location);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the TimeSlots EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToTimeSlots(TimeSlot timeSlot)
+        {
+            base.AddObject("TimeSlots", timeSlot);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Bookmarks EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToBookmarks(Bookmark bookmark)
+        {
+            base.AddObject("Bookmarks", bookmark);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the ScheduledSessions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToScheduledSessions(ScheduledSession scheduledSession)
+        {
+            base.AddObject("ScheduledSessions", scheduledSession);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Itineraries EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToItineraries(Itinerary itinerary)
+        {
+            base.AddObject("Itineraries", itinerary);
+        }
+
+        #endregion
     }
     
 
     #endregion
     
+    #region Entities
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Thrip.Model", Name="Bookmark")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Bookmark : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Bookmark object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="personId">Initial value of the PersonId property.</param>
+        public static Bookmark CreateBookmark(global::System.Guid id, global::System.Guid personId)
+        {
+            Bookmark bookmark = new Bookmark();
+            bookmark.Id = id;
+            bookmark.PersonId = personId;
+            return bookmark;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid PersonId
+        {
+            get
+            {
+                return _PersonId;
+            }
+            set
+            {
+                OnPersonIdChanging(value);
+                ReportPropertyChanging("PersonId");
+                _PersonId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PersonId");
+                OnPersonIdChanged();
+            }
+        }
+        private global::System.Guid _PersonId;
+        partial void OnPersonIdChanging(global::System.Guid value);
+        partial void OnPersonIdChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "PersonBookmark", "Person")]
+        public Person Person
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Person>("Thrip.Model.PersonBookmark", "Person").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Person>("Thrip.Model.PersonBookmark", "Person").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Person> PersonReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Person>("Thrip.Model.PersonBookmark", "Person");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Person>("Thrip.Model.PersonBookmark", "Person", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "BookmarkSession", "Session")]
+        public Session Session
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Session>("Thrip.Model.BookmarkSession", "Session").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Session>("Thrip.Model.BookmarkSession", "Session").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Session> SessionReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Session>("Thrip.Model.BookmarkSession", "Session");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Session>("Thrip.Model.BookmarkSession", "Session", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Thrip.Model", Name="Conference")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Conference : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Conference object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        public static Conference CreateConference(global::System.Guid id)
+        {
+            Conference conference = new Conference();
+            conference.Id = id;
+            return conference;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "ConferenceSession", "Session")]
+        public EntityCollection<Session> Sessions
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Session>("Thrip.Model.ConferenceSession", "Session");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Session>("Thrip.Model.ConferenceSession", "Session", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Thrip.Model", Name="Itinerary")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Itinerary : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Itinerary object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        public static Itinerary CreateItinerary(global::System.Guid id, global::System.String name)
+        {
+            Itinerary itinerary = new Itinerary();
+            itinerary.Id = id;
+            itinerary.Name = name;
+            return itinerary;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "PersonItinerary", "Person")]
+        public Person Person
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Person>("Thrip.Model.PersonItinerary", "Person").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Person>("Thrip.Model.PersonItinerary", "Person").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Person> PersonReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Person>("Thrip.Model.PersonItinerary", "Person");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Person>("Thrip.Model.PersonItinerary", "Person", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "ItineraryScheduledSession", "ScheduledSession")]
+        public EntityCollection<ScheduledSession> ScheduledSessions
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ScheduledSession>("Thrip.Model.ItineraryScheduledSession", "ScheduledSession");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ScheduledSession>("Thrip.Model.ItineraryScheduledSession", "ScheduledSession", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Thrip.Model", Name="Location")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Location : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Location object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        /// <param name="description">Initial value of the Description property.</param>
+        public static Location CreateLocation(global::System.Guid id, global::System.String name, global::System.String description)
+        {
+            Location location = new Location();
+            location.Id = id;
+            location.Name = name;
+            location.Description = description;
+            return location;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "LocationScheduledSession", "ScheduledSession")]
+        public EntityCollection<ScheduledSession> ScheduledSessions
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ScheduledSession>("Thrip.Model.LocationScheduledSession", "ScheduledSession");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ScheduledSession>("Thrip.Model.LocationScheduledSession", "ScheduledSession", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Thrip.Model", Name="Person")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Person : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Person object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="firstName">Initial value of the FirstName property.</param>
+        /// <param name="lastName">Initial value of the LastName property.</param>
+        /// <param name="email">Initial value of the Email property.</param>
+        public static Person CreatePerson(global::System.Guid id, global::System.String firstName, global::System.String lastName, global::System.String email)
+        {
+            Person person = new Person();
+            person.Id = id;
+            person.FirstName = firstName;
+            person.LastName = lastName;
+            person.Email = email;
+            return person;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String FirstName
+        {
+            get
+            {
+                return _FirstName;
+            }
+            set
+            {
+                OnFirstNameChanging(value);
+                ReportPropertyChanging("FirstName");
+                _FirstName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("FirstName");
+                OnFirstNameChanged();
+            }
+        }
+        private global::System.String _FirstName;
+        partial void OnFirstNameChanging(global::System.String value);
+        partial void OnFirstNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String LastName
+        {
+            get
+            {
+                return _LastName;
+            }
+            set
+            {
+                OnLastNameChanging(value);
+                ReportPropertyChanging("LastName");
+                _LastName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("LastName");
+                OnLastNameChanged();
+            }
+        }
+        private global::System.String _LastName;
+        partial void OnLastNameChanging(global::System.String value);
+        partial void OnLastNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Email
+        {
+            get
+            {
+                return _Email;
+            }
+            set
+            {
+                OnEmailChanging(value);
+                ReportPropertyChanging("Email");
+                _Email = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Email");
+                OnEmailChanged();
+            }
+        }
+        private global::System.String _Email;
+        partial void OnEmailChanging(global::System.String value);
+        partial void OnEmailChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "PersonBookmark", "Bookmark")]
+        public EntityCollection<Bookmark> Bookmarks
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Bookmark>("Thrip.Model.PersonBookmark", "Bookmark");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Bookmark>("Thrip.Model.PersonBookmark", "Bookmark", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "PersonItinerary", "Itinerary")]
+        public EntityCollection<Itinerary> Itineraries
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Itinerary>("Thrip.Model.PersonItinerary", "Itinerary");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Itinerary>("Thrip.Model.PersonItinerary", "Itinerary", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "PersonSession", "Session")]
+        public EntityCollection<Session> Sessions
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Session>("Thrip.Model.PersonSession", "Session");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Session>("Thrip.Model.PersonSession", "Session", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Thrip.Model", Name="ScheduledSession")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class ScheduledSession : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new ScheduledSession object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="sessionId">Initial value of the SessionId property.</param>
+        /// <param name="timeSlotId">Initial value of the TimeSlotId property.</param>
+        /// <param name="locationId">Initial value of the LocationId property.</param>
+        public static ScheduledSession CreateScheduledSession(global::System.Guid id, global::System.Guid sessionId, global::System.Guid timeSlotId, global::System.Guid locationId)
+        {
+            ScheduledSession scheduledSession = new ScheduledSession();
+            scheduledSession.Id = id;
+            scheduledSession.SessionId = sessionId;
+            scheduledSession.TimeSlotId = timeSlotId;
+            scheduledSession.LocationId = locationId;
+            return scheduledSession;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid SessionId
+        {
+            get
+            {
+                return _SessionId;
+            }
+            set
+            {
+                OnSessionIdChanging(value);
+                ReportPropertyChanging("SessionId");
+                _SessionId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SessionId");
+                OnSessionIdChanged();
+            }
+        }
+        private global::System.Guid _SessionId;
+        partial void OnSessionIdChanging(global::System.Guid value);
+        partial void OnSessionIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid TimeSlotId
+        {
+            get
+            {
+                return _TimeSlotId;
+            }
+            set
+            {
+                OnTimeSlotIdChanging(value);
+                ReportPropertyChanging("TimeSlotId");
+                _TimeSlotId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TimeSlotId");
+                OnTimeSlotIdChanged();
+            }
+        }
+        private global::System.Guid _TimeSlotId;
+        partial void OnTimeSlotIdChanging(global::System.Guid value);
+        partial void OnTimeSlotIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid LocationId
+        {
+            get
+            {
+                return _LocationId;
+            }
+            set
+            {
+                OnLocationIdChanging(value);
+                ReportPropertyChanging("LocationId");
+                _LocationId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LocationId");
+                OnLocationIdChanged();
+            }
+        }
+        private global::System.Guid _LocationId;
+        partial void OnLocationIdChanging(global::System.Guid value);
+        partial void OnLocationIdChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "SessionScheduledSession", "Session")]
+        public Session Session
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Session>("Thrip.Model.SessionScheduledSession", "Session").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Session>("Thrip.Model.SessionScheduledSession", "Session").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Session> SessionReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Session>("Thrip.Model.SessionScheduledSession", "Session");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Session>("Thrip.Model.SessionScheduledSession", "Session", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "TimeSlotScheduledSession", "TimeSlot")]
+        public TimeSlot TimeSlot
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TimeSlot>("Thrip.Model.TimeSlotScheduledSession", "TimeSlot").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TimeSlot>("Thrip.Model.TimeSlotScheduledSession", "TimeSlot").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<TimeSlot> TimeSlotReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TimeSlot>("Thrip.Model.TimeSlotScheduledSession", "TimeSlot");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TimeSlot>("Thrip.Model.TimeSlotScheduledSession", "TimeSlot", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "LocationScheduledSession", "Location")]
+        public Location Location
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Location>("Thrip.Model.LocationScheduledSession", "Location").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Location>("Thrip.Model.LocationScheduledSession", "Location").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Location> LocationReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Location>("Thrip.Model.LocationScheduledSession", "Location");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Location>("Thrip.Model.LocationScheduledSession", "Location", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "ItineraryScheduledSession", "Itinerary")]
+        public EntityCollection<Itinerary> Itineraries
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Itinerary>("Thrip.Model.ItineraryScheduledSession", "Itinerary");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Itinerary>("Thrip.Model.ItineraryScheduledSession", "Itinerary", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Thrip.Model", Name="Session")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Session : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Session object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        /// <param name="description">Initial value of the Description property.</param>
+        /// <param name="tags">Initial value of the Tags property.</param>
+        public static Session CreateSession(global::System.Guid id, global::System.String name, global::System.String description, global::System.String tags)
+        {
+            Session session = new Session();
+            session.Id = id;
+            session.Name = name;
+            session.Description = description;
+            session.Tags = tags;
+            return session;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Tags
+        {
+            get
+            {
+                return _Tags;
+            }
+            set
+            {
+                OnTagsChanging(value);
+                ReportPropertyChanging("Tags");
+                _Tags = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Tags");
+                OnTagsChanged();
+            }
+        }
+        private global::System.String _Tags;
+        partial void OnTagsChanging(global::System.String value);
+        partial void OnTagsChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "SessionScheduledSession", "ScheduledSession")]
+        public EntityCollection<ScheduledSession> ScheduledSessions
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ScheduledSession>("Thrip.Model.SessionScheduledSession", "ScheduledSession");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ScheduledSession>("Thrip.Model.SessionScheduledSession", "ScheduledSession", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "ConferenceSession", "Conference")]
+        public EntityCollection<Conference> Conferences
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Conference>("Thrip.Model.ConferenceSession", "Conference");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Conference>("Thrip.Model.ConferenceSession", "Conference", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "BookmarkSession", "Bookmark")]
+        public Bookmark Bookmark
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Bookmark>("Thrip.Model.BookmarkSession", "Bookmark").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Bookmark>("Thrip.Model.BookmarkSession", "Bookmark").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Bookmark> BookmarkReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Bookmark>("Thrip.Model.BookmarkSession", "Bookmark");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Bookmark>("Thrip.Model.BookmarkSession", "Bookmark", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "PersonSession", "Person")]
+        public EntityCollection<Person> Facilitators
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Person>("Thrip.Model.PersonSession", "Person");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Person>("Thrip.Model.PersonSession", "Person", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Thrip.Model", Name="TimeSlot")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class TimeSlot : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new TimeSlot object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="startDate">Initial value of the StartDate property.</param>
+        /// <param name="endDate">Initial value of the EndDate property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        public static TimeSlot CreateTimeSlot(global::System.Guid id, global::System.DateTime startDate, global::System.DateTime endDate, global::System.String name)
+        {
+            TimeSlot timeSlot = new TimeSlot();
+            timeSlot.Id = id;
+            timeSlot.StartDate = startDate;
+            timeSlot.EndDate = endDate;
+            timeSlot.Name = name;
+            return timeSlot;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime StartDate
+        {
+            get
+            {
+                return _StartDate;
+            }
+            set
+            {
+                OnStartDateChanging(value);
+                ReportPropertyChanging("StartDate");
+                _StartDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("StartDate");
+                OnStartDateChanged();
+            }
+        }
+        private global::System.DateTime _StartDate;
+        partial void OnStartDateChanging(global::System.DateTime value);
+        partial void OnStartDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime EndDate
+        {
+            get
+            {
+                return _EndDate;
+            }
+            set
+            {
+                OnEndDateChanging(value);
+                ReportPropertyChanging("EndDate");
+                _EndDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EndDate");
+                OnEndDateChanged();
+            }
+        }
+        private global::System.DateTime _EndDate;
+        partial void OnEndDateChanging(global::System.DateTime value);
+        partial void OnEndDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "TimeSlotScheduledSession", "ScheduledSession")]
+        public EntityCollection<ScheduledSession> ScheduledSessions
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ScheduledSession>("Thrip.Model.TimeSlotScheduledSession", "ScheduledSession");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ScheduledSession>("Thrip.Model.TimeSlotScheduledSession", "ScheduledSession", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+
+    #endregion
     
 }
