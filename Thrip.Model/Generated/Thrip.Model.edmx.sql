@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 06/24/2010 23:14:56
+-- Date Created: 06/25/2010 03:07:04
 -- Generated from EDMX file: C:\Dev\Thrip\Thrip.Model\Generated\Thrip.Model.edmx
 -- --------------------------------------------------
 
@@ -15,7 +15,7 @@ GO
 
 -- --------------------------------------------------
 -- Dropping existing FOREIGN KEY constraints
--- --------------------------------------------------
+-- --------------------------------------------------C:\Dev\Thrip\Thrip.Model\Generated\Thrip.Model.edmx.sql
 
 IF OBJECT_ID(N'[dbo].[FK_SessionScheduledSession]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ScheduledSessions] DROP CONSTRAINT [FK_SessionScheduledSession];
@@ -32,12 +32,6 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_ConferenceSession_Session]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ConferenceSession] DROP CONSTRAINT [FK_ConferenceSession_Session];
 GO
-IF OBJECT_ID(N'[dbo].[FK_PersonBookmark]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Bookmarks] DROP CONSTRAINT [FK_PersonBookmark];
-GO
-IF OBJECT_ID(N'[dbo].[FK_BookmarkSession]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Bookmarks] DROP CONSTRAINT [FK_BookmarkSession];
-GO
 IF OBJECT_ID(N'[dbo].[FK_PersonItinerary]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Itineraries] DROP CONSTRAINT [FK_PersonItinerary];
 GO
@@ -46,6 +40,18 @@ IF OBJECT_ID(N'[dbo].[FK_ItineraryScheduledSession_Itinerary]', 'F') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[FK_ItineraryScheduledSession_ScheduledSession]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ItineraryScheduledSession] DROP CONSTRAINT [FK_ItineraryScheduledSession_ScheduledSession];
+GO
+IF OBJECT_ID(N'[dbo].[FK_FacilitatorSession_Person]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[FacilitatorSession] DROP CONSTRAINT [FK_FacilitatorSession_Person];
+GO
+IF OBJECT_ID(N'[dbo].[FK_FacilitatorSession_Session]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[FacilitatorSession] DROP CONSTRAINT [FK_FacilitatorSession_Session];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PersonSessionBookmarks_Person]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PersonSessionBookmarks] DROP CONSTRAINT [FK_PersonSessionBookmarks_Person];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PersonSessionBookmarks_Session]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PersonSessionBookmarks] DROP CONSTRAINT [FK_PersonSessionBookmarks_Session];
 GO
 
 -- --------------------------------------------------
@@ -67,9 +73,6 @@ GO
 IF OBJECT_ID(N'[dbo].[TimeSlots]', 'U') IS NOT NULL
     DROP TABLE [dbo].[TimeSlots];
 GO
-IF OBJECT_ID(N'[dbo].[Bookmarks]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Bookmarks];
-GO
 IF OBJECT_ID(N'[dbo].[ScheduledSessions]', 'U') IS NOT NULL
     DROP TABLE [dbo].[ScheduledSessions];
 GO
@@ -81,6 +84,12 @@ IF OBJECT_ID(N'[dbo].[ConferenceSession]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[ItineraryScheduledSession]', 'U') IS NOT NULL
     DROP TABLE [dbo].[ItineraryScheduledSession];
+GO
+IF OBJECT_ID(N'[dbo].[FacilitatorSession]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[FacilitatorSession];
+GO
+IF OBJECT_ID(N'[dbo].[PersonSessionBookmarks]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PersonSessionBookmarks];
 GO
 
 -- --------------------------------------------------
@@ -133,14 +142,6 @@ CREATE TABLE [dbo].[TimeSlots] (
 );
 GO
 
--- Creating table 'Bookmarks'
-CREATE TABLE [dbo].[Bookmarks] (
-    [Id] uniqueidentifier  NOT NULL,
-    [PersonId] uniqueidentifier  NOT NULL,
-    [Session_Id] uniqueidentifier  NOT NULL
-);
-GO
-
 -- Creating table 'ScheduledSessions'
 CREATE TABLE [dbo].[ScheduledSessions] (
     [Id] uniqueidentifier  NOT NULL,
@@ -172,10 +173,17 @@ CREATE TABLE [dbo].[ItineraryScheduledSession] (
 );
 GO
 
--- Creating table 'PersonSession'
-CREATE TABLE [dbo].[PersonSession] (
+-- Creating table 'FacilitatorSession'
+CREATE TABLE [dbo].[FacilitatorSession] (
     [Facilitators_Id] uniqueidentifier  NOT NULL,
     [Sessions_Id] uniqueidentifier  NOT NULL
+);
+GO
+
+-- Creating table 'PersonSessionBookmarks'
+CREATE TABLE [dbo].[PersonSessionBookmarks] (
+    [People_Id] uniqueidentifier  NOT NULL,
+    [SessionBookmarks_Id] uniqueidentifier  NOT NULL
 );
 GO
 
@@ -213,12 +221,6 @@ ADD CONSTRAINT [PK_TimeSlots]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'Bookmarks'
-ALTER TABLE [dbo].[Bookmarks]
-ADD CONSTRAINT [PK_Bookmarks]
-    PRIMARY KEY CLUSTERED ([Id] ASC);
-GO
-
 -- Creating primary key on [Id] in table 'ScheduledSessions'
 ALTER TABLE [dbo].[ScheduledSessions]
 ADD CONSTRAINT [PK_ScheduledSessions]
@@ -243,10 +245,16 @@ ADD CONSTRAINT [PK_ItineraryScheduledSession]
     PRIMARY KEY NONCLUSTERED ([Itineraries_Id], [ScheduledSessions_Id] ASC);
 GO
 
--- Creating primary key on [Facilitators_Id], [Sessions_Id] in table 'PersonSession'
-ALTER TABLE [dbo].[PersonSession]
-ADD CONSTRAINT [PK_PersonSession]
+-- Creating primary key on [Facilitators_Id], [Sessions_Id] in table 'FacilitatorSession'
+ALTER TABLE [dbo].[FacilitatorSession]
+ADD CONSTRAINT [PK_FacilitatorSession]
     PRIMARY KEY NONCLUSTERED ([Facilitators_Id], [Sessions_Id] ASC);
+GO
+
+-- Creating primary key on [People_Id], [SessionBookmarks_Id] in table 'PersonSessionBookmarks'
+ALTER TABLE [dbo].[PersonSessionBookmarks]
+ADD CONSTRAINT [PK_PersonSessionBookmarks]
+    PRIMARY KEY NONCLUSTERED ([People_Id], [SessionBookmarks_Id] ASC);
 GO
 
 -- --------------------------------------------------
@@ -318,34 +326,6 @@ ON [dbo].[ConferenceSession]
     ([Sessions_Id]);
 GO
 
--- Creating foreign key on [PersonId] in table 'Bookmarks'
-ALTER TABLE [dbo].[Bookmarks]
-ADD CONSTRAINT [FK_PersonBookmark]
-    FOREIGN KEY ([PersonId])
-    REFERENCES [dbo].[People]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_PersonBookmark'
-CREATE INDEX [IX_FK_PersonBookmark]
-ON [dbo].[Bookmarks]
-    ([PersonId]);
-GO
-
--- Creating foreign key on [Session_Id] in table 'Bookmarks'
-ALTER TABLE [dbo].[Bookmarks]
-ADD CONSTRAINT [FK_BookmarkSession]
-    FOREIGN KEY ([Session_Id])
-    REFERENCES [dbo].[Sessions]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_BookmarkSession'
-CREATE INDEX [IX_FK_BookmarkSession]
-ON [dbo].[Bookmarks]
-    ([Session_Id]);
-GO
-
 -- Creating foreign key on [Person_Id] in table 'Itineraries'
 ALTER TABLE [dbo].[Itineraries]
 ADD CONSTRAINT [FK_PersonItinerary]
@@ -383,27 +363,50 @@ ON [dbo].[ItineraryScheduledSession]
     ([ScheduledSessions_Id]);
 GO
 
--- Creating foreign key on [Facilitators_Id] in table 'PersonSession'
-ALTER TABLE [dbo].[PersonSession]
-ADD CONSTRAINT [FK_PersonSession_Person]
+-- Creating foreign key on [Facilitators_Id] in table 'FacilitatorSession'
+ALTER TABLE [dbo].[FacilitatorSession]
+ADD CONSTRAINT [FK_FacilitatorSession_Person]
     FOREIGN KEY ([Facilitators_Id])
     REFERENCES [dbo].[People]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating foreign key on [Sessions_Id] in table 'PersonSession'
-ALTER TABLE [dbo].[PersonSession]
-ADD CONSTRAINT [FK_PersonSession_Session]
+-- Creating foreign key on [Sessions_Id] in table 'FacilitatorSession'
+ALTER TABLE [dbo].[FacilitatorSession]
+ADD CONSTRAINT [FK_FacilitatorSession_Session]
     FOREIGN KEY ([Sessions_Id])
     REFERENCES [dbo].[Sessions]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
--- Creating non-clustered index for FOREIGN KEY 'FK_PersonSession_Session'
-CREATE INDEX [IX_FK_PersonSession_Session]
-ON [dbo].[PersonSession]
+-- Creating non-clustered index for FOREIGN KEY 'FK_FacilitatorSession_Session'
+CREATE INDEX [IX_FK_FacilitatorSession_Session]
+ON [dbo].[FacilitatorSession]
     ([Sessions_Id]);
+GO
+
+-- Creating foreign key on [People_Id] in table 'PersonSessionBookmarks'
+ALTER TABLE [dbo].[PersonSessionBookmarks]
+ADD CONSTRAINT [FK_PersonSessionBookmarks_Person]
+    FOREIGN KEY ([People_Id])
+    REFERENCES [dbo].[People]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [SessionBookmarks_Id] in table 'PersonSessionBookmarks'
+ALTER TABLE [dbo].[PersonSessionBookmarks]
+ADD CONSTRAINT [FK_PersonSessionBookmarks_Session]
+    FOREIGN KEY ([SessionBookmarks_Id])
+    REFERENCES [dbo].[Sessions]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_PersonSessionBookmarks_Session'
+CREATE INDEX [IX_FK_PersonSessionBookmarks_Session]
+ON [dbo].[PersonSessionBookmarks]
+    ([SessionBookmarks_Id]);
 GO
 
 -- --------------------------------------------------

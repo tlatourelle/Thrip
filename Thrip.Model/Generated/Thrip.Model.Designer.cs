@@ -22,11 +22,10 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("Thrip.Model", "TimeSlotScheduledSession", "TimeSlot", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Thrip.Model.TimeSlot), "ScheduledSession", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.ScheduledSession), true)]
 [assembly: EdmRelationshipAttribute("Thrip.Model", "LocationScheduledSession", "Location", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Thrip.Model.Location), "ScheduledSession", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.ScheduledSession), true)]
 [assembly: EdmRelationshipAttribute("Thrip.Model", "ConferenceSession", "Conference", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.Conference), "Session", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.Session))]
-[assembly: EdmRelationshipAttribute("Thrip.Model", "PersonBookmark", "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Thrip.Model.Person), "Bookmark", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.Bookmark), true)]
-[assembly: EdmRelationshipAttribute("Thrip.Model", "BookmarkSession", "Bookmark", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Thrip.Model.Bookmark), "Session", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Thrip.Model.Session))]
 [assembly: EdmRelationshipAttribute("Thrip.Model", "PersonItinerary", "Itinerary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.Itinerary), "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Thrip.Model.Person))]
 [assembly: EdmRelationshipAttribute("Thrip.Model", "ItineraryScheduledSession", "Itinerary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.Itinerary), "ScheduledSession", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.ScheduledSession))]
-[assembly: EdmRelationshipAttribute("Thrip.Model", "PersonSession", "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.Person), "Session", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.Session))]
+[assembly: EdmRelationshipAttribute("Thrip.Model", "FacilitatorSession", "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.Person), "Session", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.Session))]
+[assembly: EdmRelationshipAttribute("Thrip.Model", "PersonSessionBookmarks", "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.Person), "Session", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.Session))]
 
 #endregion
 
@@ -161,22 +160,6 @@ namespace Thrip.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Bookmark> Bookmarks
-        {
-            get
-            {
-                if ((_Bookmarks == null))
-                {
-                    _Bookmarks = base.CreateObjectSet<Bookmark>("Bookmarks");
-                }
-                return _Bookmarks;
-            }
-        }
-        private ObjectSet<Bookmark> _Bookmarks;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<ScheduledSession> ScheduledSessions
         {
             get
@@ -250,14 +233,6 @@ namespace Thrip.Model
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Bookmarks EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToBookmarks(Bookmark bookmark)
-        {
-            base.AddObject("Bookmarks", bookmark);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the ScheduledSessions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToScheduledSessions(ScheduledSession scheduledSession)
@@ -280,166 +255,6 @@ namespace Thrip.Model
     #endregion
     
     #region Entities
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Thrip.Model", Name="Bookmark")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class Bookmark : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new Bookmark object.
-        /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="personId">Initial value of the PersonId property.</param>
-        public static Bookmark CreateBookmark(global::System.Guid id, global::System.Guid personId)
-        {
-            Bookmark bookmark = new Bookmark();
-            bookmark.Id = id;
-            bookmark.PersonId = personId;
-            return bookmark;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Guid Id
-        {
-            get
-            {
-                return _Id;
-            }
-            set
-            {
-                if (_Id != value)
-                {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
-                }
-            }
-        }
-        private global::System.Guid _Id;
-        partial void OnIdChanging(global::System.Guid value);
-        partial void OnIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Guid PersonId
-        {
-            get
-            {
-                return _PersonId;
-            }
-            set
-            {
-                OnPersonIdChanging(value);
-                ReportPropertyChanging("PersonId");
-                _PersonId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("PersonId");
-                OnPersonIdChanged();
-            }
-        }
-        private global::System.Guid _PersonId;
-        partial void OnPersonIdChanging(global::System.Guid value);
-        partial void OnPersonIdChanged();
-
-        #endregion
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "PersonBookmark", "Person")]
-        public Person Person
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Person>("Thrip.Model.PersonBookmark", "Person").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Person>("Thrip.Model.PersonBookmark", "Person").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Person> PersonReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Person>("Thrip.Model.PersonBookmark", "Person");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Person>("Thrip.Model.PersonBookmark", "Person", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "BookmarkSession", "Session")]
-        public Session Session
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Session>("Thrip.Model.BookmarkSession", "Session").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Session>("Thrip.Model.BookmarkSession", "Session").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Session> SessionReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Session>("Thrip.Model.BookmarkSession", "Session");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Session>("Thrip.Model.BookmarkSession", "Session", value);
-                }
-            }
-        }
-
-        #endregion
-    }
     
     /// <summary>
     /// No Metadata Documentation available.
@@ -1066,28 +881,6 @@ namespace Thrip.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "PersonBookmark", "Bookmark")]
-        public EntityCollection<Bookmark> Bookmarks
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Bookmark>("Thrip.Model.PersonBookmark", "Bookmark");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Bookmark>("Thrip.Model.PersonBookmark", "Bookmark", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "PersonItinerary", "Itinerary")]
         public EntityCollection<Itinerary> Itineraries
         {
@@ -1110,18 +903,40 @@ namespace Thrip.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "PersonSession", "Session")]
+        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "FacilitatorSession", "Session")]
         public EntityCollection<Session> Sessions
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Session>("Thrip.Model.PersonSession", "Session");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Session>("Thrip.Model.FacilitatorSession", "Session");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Session>("Thrip.Model.PersonSession", "Session", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Session>("Thrip.Model.FacilitatorSession", "Session", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "PersonSessionBookmarks", "Session")]
+        public EntityCollection<Session> SessionBookmarks
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Session>("Thrip.Model.PersonSessionBookmarks", "Session");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Session>("Thrip.Model.PersonSessionBookmarks", "Session", value);
                 }
             }
         }
@@ -1584,34 +1399,18 @@ namespace Thrip.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "BookmarkSession", "Bookmark")]
-        public Bookmark Bookmark
+        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "FacilitatorSession", "Person")]
+        public EntityCollection<Person> Facilitators
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Bookmark>("Thrip.Model.BookmarkSession", "Bookmark").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Bookmark>("Thrip.Model.BookmarkSession", "Bookmark").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Bookmark> BookmarkReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Bookmark>("Thrip.Model.BookmarkSession", "Bookmark");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Person>("Thrip.Model.FacilitatorSession", "Person");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Bookmark>("Thrip.Model.BookmarkSession", "Bookmark", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Person>("Thrip.Model.FacilitatorSession", "Person", value);
                 }
             }
         }
@@ -1622,18 +1421,18 @@ namespace Thrip.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "PersonSession", "Person")]
-        public EntityCollection<Person> Facilitators
+        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "PersonSessionBookmarks", "Person")]
+        public EntityCollection<Person> People
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Person>("Thrip.Model.PersonSession", "Person");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Person>("Thrip.Model.PersonSessionBookmarks", "Person");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Person>("Thrip.Model.PersonSession", "Person", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Person>("Thrip.Model.PersonSessionBookmarks", "Person", value);
                 }
             }
         }

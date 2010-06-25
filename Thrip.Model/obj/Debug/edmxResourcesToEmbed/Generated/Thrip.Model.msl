@@ -52,14 +52,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Bookmarks">
-      <EntityTypeMapping TypeName="IsTypeOf(Thrip.Model.Bookmark)">
-        <MappingFragment StoreEntitySet="Bookmarks">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ScheduledSessions">
       <EntityTypeMapping TypeName="IsTypeOf(Thrip.Model.ScheduledSession)">
         <MappingFragment StoreEntitySet="ScheduledSessions">
@@ -86,14 +78,6 @@
         <ScalarProperty Name="Id" ColumnName="Sessions_Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="BookmarkSession" TypeName="Thrip.Model.BookmarkSession" StoreEntitySet="Bookmarks">
-      <EndProperty Name="Session">
-        <ScalarProperty Name="Id" ColumnName="Session_Id" />
-      </EndProperty>
-      <EndProperty Name="Bookmark">
-        <ScalarProperty Name="Id" ColumnName="Id" />
-      </EndProperty>
-    </AssociationSetMapping>
     <AssociationSetMapping Name="PersonItinerary" TypeName="Thrip.Model.PersonItinerary" StoreEntitySet="Itineraries">
       <EndProperty Name="Person">
         <ScalarProperty Name="Id" ColumnName="Person_Id" />
@@ -110,12 +94,20 @@
         <ScalarProperty Name="Id" ColumnName="ScheduledSessions_Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="PersonSession" TypeName="Thrip.Model.PersonSession" StoreEntitySet="PersonSession">
+    <AssociationSetMapping Name="FacilitatorSession" TypeName="Thrip.Model.FacilitatorSession" StoreEntitySet="FacilitatorSession">
       <EndProperty Name="Person">
         <ScalarProperty Name="Id" ColumnName="Facilitators_Id" />
       </EndProperty>
       <EndProperty Name="Session">
         <ScalarProperty Name="Id" ColumnName="Sessions_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PersonSessionBookmarks" TypeName="Thrip.Model.PersonSessionBookmarks" StoreEntitySet="PersonSessionBookmarks">
+      <EndProperty Name="Person">
+        <ScalarProperty Name="Id" ColumnName="People_Id" />
+      </EndProperty>
+      <EndProperty Name="Session">
+        <ScalarProperty Name="Id" ColumnName="SessionBookmarks_Id" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>
