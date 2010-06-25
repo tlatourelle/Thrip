@@ -13,6 +13,7 @@ namespace Thrip.Web.Site
 
     public class MvcApplication : System.Web.HttpApplication
     {
+        //hello J
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
@@ -20,7 +21,7 @@ namespace Thrip.Web.Site
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "Page", action = "Home", id = UrlParameter.Optional } // Parameter defaults
+                new { controller = MVC.Page.Name, action = MVC.Page.ActionNames.Home, id = UrlParameter.Optional } // Parameter defaults
             );
 
         }
