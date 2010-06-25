@@ -1,0 +1,5 @@
+C:\Dev\Thrip\Thrip.DataServices\bin\Thrip.DataServices.dll
+C:\Dev\Thrip\Thrip.DataServices\bin\Thrip.DataServices.pdb
+C:\Dev\Thrip\Thrip.DataServices\obj\Debug\ResolveAssemblyReference.cache
+C:\Dev\Thrip\Thrip.DataServices\obj\Debug\Thrip.DataServices.dll
+C:\Dev\Thrip\Thrip.DataServices\obj\Debug\Thrip.DataServices.pdb

@@ -1,0 +1,11 @@
+C:\Dev\Thrip\Thrip.Web.Admin\bin\Thrip.Web.Admin.dll
+C:\Dev\Thrip\Thrip.Web.Admin\bin\Thrip.Web.Admin.pdb
+C:\Dev\Thrip\Thrip.Web.Admin\bin\Spark.dll
+C:\Dev\Thrip\Thrip.Web.Admin\bin\Spark.Web.Mvc.dll
+C:\Dev\Thrip\Thrip.Web.Admin\bin\System.Web.Mvc.dll
+C:\Dev\Thrip\Thrip.Web.Admin\bin\Spark.pdb
+C:\Dev\Thrip\Thrip.Web.Admin\bin\Spark.Web.Mvc.pdb
+C:\Dev\Thrip\Thrip.Web.Admin\bin\System.Web.Mvc.xml
+C:\Dev\Thrip\Thrip.Web.Admin\obj\Debug\ResolveAssemblyReference.cache
+C:\Dev\Thrip\Thrip.Web.Admin\obj\Debug\Thrip.Web.Admin.dll
+C:\Dev\Thrip\Thrip.Web.Admin\obj\Debug\Thrip.Web.Admin.pdb

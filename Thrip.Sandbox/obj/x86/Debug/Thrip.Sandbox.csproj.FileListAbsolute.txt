@@ -1,0 +1,6 @@
+C:\Dev\Thrip\Thrip.Sandbox\bin\Debug\Thrip.Sandbox.exe.config
+C:\Dev\Thrip\Thrip.Sandbox\bin\Debug\Thrip.Sandbox.exe
+C:\Dev\Thrip\Thrip.Sandbox\bin\Debug\Thrip.Sandbox.pdb
+C:\Dev\Thrip\Thrip.Sandbox\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Dev\Thrip\Thrip.Sandbox\obj\x86\Debug\Thrip.Sandbox.exe
+C:\Dev\Thrip\Thrip.Sandbox\obj\x86\Debug\Thrip.Sandbox.pdb
