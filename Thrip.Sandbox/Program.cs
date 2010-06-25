@@ -180,9 +180,11 @@ namespace Thrip.Sandbox
 
             _timeSlot.Id = Guid.NewGuid();
             _timeSlot.Name = "Welcome Session";
-            _timeSlot.StartDate = DateTime.Parse("9/3/2010 08:00");
-            _timeSlot.EndDate = DateTime.Parse("9/3/2010 09:00");
+            _timeSlot.StartDate = DateTime.Now; // DateTime.Parse("9/3/2010 08:00");
+            _timeSlot.EndDate = DateTime.Now.AddHours(1); // DateTime.Parse("9/3/2010 09:00");
             dataContext.TimeSlots.AddObject(_timeSlot);
+
+            dataContext.SaveChanges();
 
             _timeSlot = new TimeSlot();
 
@@ -192,6 +194,8 @@ namespace Thrip.Sandbox
             _timeSlot.EndDate = DateTime.Parse("9/3/2010 11:00");
             dataContext.TimeSlots.AddObject(_timeSlot);
 
+            dataContext.SaveChanges();
+
             _timeSlot = new TimeSlot();
 
             _timeSlot.Id = Guid.NewGuid();
@@ -199,6 +203,8 @@ namespace Thrip.Sandbox
             _timeSlot.StartDate = DateTime.Parse("9/3/2010 11:15");
             _timeSlot.EndDate = DateTime.Parse("9/3/2010 12:45");
             dataContext.TimeSlots.AddObject(_timeSlot);
+
+            dataContext.SaveChanges();
 
             _timeSlot = new TimeSlot();
 
@@ -208,6 +214,8 @@ namespace Thrip.Sandbox
             _timeSlot.EndDate = DateTime.Parse("9/3/2010 16:00");
             dataContext.TimeSlots.AddObject(_timeSlot);
 
+            dataContext.SaveChanges();
+
             _timeSlot = new TimeSlot();
 
             _timeSlot.Id = Guid.NewGuid();
@@ -216,6 +224,7 @@ namespace Thrip.Sandbox
             _timeSlot.EndDate = DateTime.Parse("9/4/2010 09:00");
             dataContext.TimeSlots.AddObject(_timeSlot);
 
+            dataContext.SaveChanges();
         }
 
         static void CreateSampleScheduledSessions(ThripEntities dataContext)

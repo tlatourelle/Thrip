@@ -93,7 +93,7 @@
     </Key>
     <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="None" />
     <NavigationProperty Name="ScheduledSessions" Relationship="Thrip.Model.TimeSlotScheduledSession" FromRole="TimeSlot" ToRole="ScheduledSession" />
-    <Property Type="DateTime" Name="StartDate" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Type="DateTime" Name="StartDate" annotation:StoreGeneratedPattern="None" Nullable="false" />
     <Property Type="DateTime" Name="EndDate" Nullable="false" />
     <Property Type="String" Name="Name" Nullable="false" />
   </EntityType>

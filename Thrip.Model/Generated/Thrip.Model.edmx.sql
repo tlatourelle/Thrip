@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 06/25/2010 03:07:04
+-- Date Created: 06/25/2010 09:13:40
 -- Generated from EDMX file: C:\Dev\Thrip\Thrip.Model\Generated\Thrip.Model.edmx
 -- --------------------------------------------------
 
@@ -15,7 +15,7 @@ GO
 
 -- --------------------------------------------------
 -- Dropping existing FOREIGN KEY constraints
--- --------------------------------------------------C:\Dev\Thrip\Thrip.Model\Generated\Thrip.Model.edmx.sql
+-- --------------------------------------------------
 
 IF OBJECT_ID(N'[dbo].[FK_SessionScheduledSession]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ScheduledSessions] DROP CONSTRAINT [FK_SessionScheduledSession];
