@@ -1,0 +1,5 @@
+C:\Dev\Thrip\Thrip.Model\bin\Debug\Thrip.Model.dll
+C:\Dev\Thrip\Thrip.Model\bin\Debug\Thrip.Model.pdb
+C:\Dev\Thrip\Thrip.Model\obj\Debug\ResolveAssemblyReference.cache
+C:\Dev\Thrip\Thrip.Model\obj\Debug\Thrip.Model.dll
+C:\Dev\Thrip\Thrip.Model\obj\Debug\Thrip.Model.pdb
