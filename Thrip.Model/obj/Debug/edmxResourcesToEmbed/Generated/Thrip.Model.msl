@@ -8,6 +8,9 @@
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />
           <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Biography" ColumnName="Biography" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -20,6 +23,7 @@
           <ScalarProperty Name="URL" ColumnName="URL" />
           <ScalarProperty Name="StartDate" ColumnName="StartDate" />
           <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="Twitter" ColumnName="Twitter" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -56,9 +60,9 @@
       <EntityTypeMapping TypeName="IsTypeOf(Thrip.Model.ScheduledSession)">
         <MappingFragment StoreEntitySet="ScheduledSessions">
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
           <ScalarProperty Name="SessionId" ColumnName="SessionId" />
           <ScalarProperty Name="TimeSlotId" ColumnName="TimeSlotId" />
-          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -67,6 +71,51 @@
         <MappingFragment StoreEntitySet="Itineraries">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tracks">
+      <EntityTypeMapping TypeName="IsTypeOf(Thrip.Model.Track)">
+        <MappingFragment StoreEntitySet="Tracks">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sponsors">
+      <EntityTypeMapping TypeName="IsTypeOf(Thrip.Model.Sponsor)">
+        <MappingFragment StoreEntitySet="Sponsors">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContentResources">
+      <EntityTypeMapping TypeName="IsTypeOf(Thrip.Model.ContentResource)">
+        <MappingFragment StoreEntitySet="ContentResources">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="MimeTypeId" ColumnName="MimeTypeId" />
+          <ScalarProperty Name="ConferenceId" ColumnName="ConferenceId" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MimeTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(Thrip.Model.MimeType)">
+        <MappingFragment StoreEntitySet="MimeTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -76,14 +125,6 @@
       </EndProperty>
       <EndProperty Name="Session">
         <ScalarProperty Name="Id" ColumnName="Sessions_Id" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="PersonItinerary" TypeName="Thrip.Model.PersonItinerary" StoreEntitySet="Itineraries">
-      <EndProperty Name="Person">
-        <ScalarProperty Name="Id" ColumnName="Person_Id" />
-      </EndProperty>
-      <EndProperty Name="Itinerary">
-        <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="ItineraryScheduledSession" TypeName="Thrip.Model.ItineraryScheduledSession" StoreEntitySet="ItineraryScheduledSession">
@@ -108,6 +149,22 @@
       </EndProperty>
       <EndProperty Name="Session">
         <ScalarProperty Name="Id" ColumnName="SessionBookmarks_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TrackSession" TypeName="Thrip.Model.TrackSession" StoreEntitySet="TrackSession">
+      <EndProperty Name="Track">
+        <ScalarProperty Name="Id" ColumnName="Tracks_Id" />
+      </EndProperty>
+      <EndProperty Name="Session">
+        <ScalarProperty Name="Id" ColumnName="Sessions_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ConferenceSponsor" TypeName="Thrip.Model.ConferenceSponsor" StoreEntitySet="ConferenceSponsor">
+      <EndProperty Name="Conference">
+        <ScalarProperty Name="Id" ColumnName="Conferences_Id" />
+      </EndProperty>
+      <EndProperty Name="Sponsor">
+        <ScalarProperty Name="Id" ColumnName="Sponsors_Id" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

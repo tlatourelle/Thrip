@@ -22,3 +22,5 @@ D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Web.Site\obj\Debug\Thrip.Web
 D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Web.Site\obj\Debug\Thrip.Web.Site.pdb
 D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Web.Site\bin\Thrip.Model.dll
 D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Web.Site\bin\Thrip.Model.pdb
+C:\Dev\Thrip\Thrip.Web.Site\bin\Thrip.Model.dll
+C:\Dev\Thrip\Thrip.Web.Site\bin\Thrip.Model.pdb

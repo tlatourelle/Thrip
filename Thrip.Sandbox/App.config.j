@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <connectionStrings>
+    <add name="ThripEntities" connectionString="metadata=res://*/Generated.Thrip.Model.csdl|res://*/Generated.Thrip.Model.ssdl|res://*/Generated.Thrip.Model.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=(local);Initial Catalog=Thrip;Integrated Security=True;MultipleActiveResultSets=True&quot;" providerName="System.Data.EntityClient" />
+  </connectionStrings>
+</configuration>

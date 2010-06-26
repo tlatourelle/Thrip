@@ -17,7 +17,6 @@ namespace Thrip.Sandbox
             CreateSampleData(_dataContext);
         }
 
-
         static void CreateSampleData(ThripEntities dataContext)
         {
             CreateSampleConference(dataContext);
@@ -31,6 +30,8 @@ namespace Thrip.Sandbox
             CreateSampleTimeSlots(dataContext);
             dataContext.SaveChanges();
             CreateSampleScheduledSessions(dataContext);
+            dataContext.SaveChanges();
+            CreateSampleSponsors(dataContext);
             dataContext.SaveChanges();
         }
 
@@ -46,6 +47,32 @@ namespace Thrip.Sandbox
             _conference.URL = "http://www.mvcspringboard.org";
             dataContext.Conferences.AddObject(_conference);
         }
+
+        static void CreateSampleSponsors(ThripEntities dataContext)
+        {
+            var _conference = dataContext.Conferences.SingleOrDefault(c => c.Name == "MVC Springboard");
+            var _sponsor = new Sponsor();
+
+            _sponsor.Id = Guid.NewGuid();
+            _sponsor.Name = "DevExpress";
+            _sponsor.Description = "DevExpress engineers the most advanced IDE tools and feature-complete visual components to supercharge your .NET development, as well as application frameworks to tie everything together. Our technologies help you build your best, see complex software with clarity, increase your productivity and create stunning .NET applications in the shortest possible time. All of our products come with a 60 day unconditional money back guarantee and fully functional evaluation versions are available for download at www.devexpress.com.";
+            _sponsor.URL = "DevExpress.com";
+            _sponsor.Conferences.Add(_conference);
+
+            dataContext.Sponsors.AddObject(_sponsor);
+
+            _sponsor = new Sponsor();
+
+            _sponsor.Id = Guid.NewGuid();
+            _sponsor.Name = "Telerik";
+            _sponsor.Description = "Telerik is the leading vendor of User Interface (UI) components for ASP.NET and Windows Forms, and .NET Reporting solutions. Building on our expertise in interface development and Microsoft technologies, Telerik helps customers build applications with unparalleled richness, responsiveness and interactivity. Check out the latest release featuring our RadControls for ASP.NET, ASP.NET AJAX controls, Silverlight tools, RadControls for WinForms, and Telerik Reporting: Telerik.com";
+            _sponsor.URL = "Telerik.com";
+            _sponsor.Conferences.Add(_conference);
+
+            dataContext.Sponsors.AddObject(_sponsor);
+
+        }
+
 
         static void CreateSampleLocations(ThripEntities dataContext)
         {

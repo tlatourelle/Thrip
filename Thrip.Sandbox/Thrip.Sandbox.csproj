@@ -49,6 +49,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="App.config.j" />
+    <None Include="App.config.tom" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Thrip.Model\Thrip.Model.csproj">
