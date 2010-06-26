@@ -131,7 +131,9 @@
     <None Include="Views\Conference\Index.spark">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Views\Page\Home.spark" />
+    <None Include="Views\Page\Home.spark">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Views\Session\List.spark" />
     <None Include="Views\Shared\Application.spark" />
   </ItemGroup>

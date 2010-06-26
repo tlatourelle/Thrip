@@ -124,8 +124,8 @@
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
     <Property Name="URL" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="StartDate" Type="datetime" Nullable="false" />
-    <Property Name="EndDate" Type="datetime" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="true" />
+    <Property Name="EndDate" Type="datetime" Nullable="true" />
     <Property Name="Twitter" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="Sessions">
@@ -150,8 +150,8 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="StartDate" Type="datetime" Nullable="false" />
-    <Property Name="EndDate" Type="datetime" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="true" />
+    <Property Name="EndDate" Type="datetime" Nullable="true" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="ScheduledSessions">
@@ -159,9 +159,9 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="LocationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="LocationId" Type="uniqueidentifier" Nullable="true" />
     <Property Name="SessionId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="TimeSlotId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TimeSlotId" Type="uniqueidentifier" Nullable="true" />
   </EntityType>
   <EntityType Name="Itineraries">
     <Key>
@@ -272,7 +272,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="LocationScheduledSession">
-    <End Role="Location" Type="Thrip.Model.Store.Locations" Multiplicity="1" />
+    <End Role="Location" Type="Thrip.Model.Store.Locations" Multiplicity="0..1" />
     <End Role="ScheduledSession" Type="Thrip.Model.Store.ScheduledSessions" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Location">
@@ -296,7 +296,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="TimeSlotScheduledSession">
-    <End Role="TimeSlot" Type="Thrip.Model.Store.TimeSlots" Multiplicity="1" />
+    <End Role="TimeSlot" Type="Thrip.Model.Store.TimeSlots" Multiplicity="0..1" />
     <End Role="ScheduledSession" Type="Thrip.Model.Store.ScheduledSessions" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TimeSlot">
@@ -597,8 +597,8 @@
           <Property Type="String" Name="Name" Nullable="false" />
           <Property Type="String" Name="Description" Nullable="true" />
           <Property Type="String" Name="URL" Nullable="true" />
-          <Property Type="DateTime" Name="StartDate" Nullable="false" />
-          <Property Type="DateTime" Name="EndDate" Nullable="false" />
+          <Property Type="DateTime" Name="StartDate" Nullable="true" />
+          <Property Type="DateTime" Name="EndDate" Nullable="true" />
           <Property Type="String" Name="Twitter" Nullable="true" />
           <NavigationProperty Name="Sponsors" Relationship="Thrip.Model.ConferenceSponsor" FromRole="Conference" ToRole="Sponsor" />
           <NavigationProperty Name="ContentResources" Relationship="Thrip.Model.ConferenceContentResource" FromRole="Conference" ToRole="ContentResource" />
@@ -632,8 +632,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="None" />
-          <Property Type="DateTime" Name="StartDate" annotation:StoreGeneratedPattern="None" Nullable="false" />
-          <Property Type="DateTime" Name="EndDate" Nullable="false" />
+          <Property Type="DateTime" Name="StartDate" annotation:StoreGeneratedPattern="None" Nullable="true" />
+          <Property Type="DateTime" Name="EndDate" Nullable="true" />
           <Property Type="String" Name="Name" Nullable="false" />
           <NavigationProperty Name="ScheduledSessions" Relationship="Thrip.Model.TimeSlotScheduledSession" FromRole="TimeSlot" ToRole="ScheduledSession" />
         </EntityType>
@@ -644,11 +644,11 @@
           <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="None" />
           <NavigationProperty Name="Itineraries" Relationship="Thrip.Model.ItineraryScheduledSession" FromRole="ScheduledSession" ToRole="Itinerary" />
           <NavigationProperty Name="Location" Relationship="Thrip.Model.LocationScheduledSession" FromRole="ScheduledSession" ToRole="Location" />
-          <Property Type="Guid" Name="LocationId" Nullable="false" />
+          <Property Type="Guid" Name="LocationId" Nullable="true" />
           <NavigationProperty Name="Session" Relationship="Thrip.Model.SessionScheduledSession" FromRole="ScheduledSession" ToRole="Session" />
           <Property Type="Guid" Name="SessionId" Nullable="false" />
           <NavigationProperty Name="TimeSlot" Relationship="Thrip.Model.TimeSlotScheduledSession" FromRole="ScheduledSession" ToRole="TimeSlot" />
-          <Property Type="Guid" Name="TimeSlotId" Nullable="false" />
+          <Property Type="Guid" Name="TimeSlotId" Nullable="true" />
         </EntityType>
         <Association Name="ConferenceSession">
           <End Type="Thrip.Model.Conference" Role="Conference" Multiplicity="*" />
@@ -744,7 +744,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="LocationScheduledSession">
-          <End Type="Thrip.Model.Location" Role="Location" Multiplicity="1" />
+          <End Type="Thrip.Model.Location" Role="Location" Multiplicity="0..1" />
           <End Type="Thrip.Model.ScheduledSession" Role="ScheduledSession" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Location">
@@ -768,7 +768,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="TimeSlotScheduledSession">
-          <End Type="Thrip.Model.TimeSlot" Role="TimeSlot" Multiplicity="1" />
+          <End Type="Thrip.Model.TimeSlot" Role="TimeSlot" Multiplicity="0..1" />
           <End Type="Thrip.Model.ScheduledSession" Role="ScheduledSession" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TimeSlot">

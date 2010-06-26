@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 06/26/2010 14:44:21
+-- Date Created: 06/26/2010 15:21:51
 -- Generated from EDMX file: C:\Dev\Thrip\Thrip.Model\Generated\Thrip.Model.edmx
 -- --------------------------------------------------
 
@@ -156,8 +156,8 @@ CREATE TABLE [dbo].[Conferences] (
     [Name] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NULL,
     [URL] nvarchar(max)  NULL,
-    [StartDate] datetime  NOT NULL,
-    [EndDate] datetime  NOT NULL,
+    [StartDate] datetime  NULL,
+    [EndDate] datetime  NULL,
     [Twitter] nvarchar(max)  NULL
 );
 GO
@@ -182,8 +182,8 @@ GO
 -- Creating table 'TimeSlots'
 CREATE TABLE [dbo].[TimeSlots] (
     [Id] uniqueidentifier  NOT NULL,
-    [StartDate] datetime  NOT NULL,
-    [EndDate] datetime  NOT NULL,
+    [StartDate] datetime  NULL,
+    [EndDate] datetime  NULL,
     [Name] nvarchar(max)  NOT NULL
 );
 GO
@@ -191,9 +191,9 @@ GO
 -- Creating table 'ScheduledSessions'
 CREATE TABLE [dbo].[ScheduledSessions] (
     [Id] uniqueidentifier  NOT NULL,
-    [LocationId] uniqueidentifier  NOT NULL,
+    [LocationId] uniqueidentifier  NULL,
     [SessionId] uniqueidentifier  NOT NULL,
-    [TimeSlotId] uniqueidentifier  NOT NULL
+    [TimeSlotId] uniqueidentifier  NULL
 );
 GO
 

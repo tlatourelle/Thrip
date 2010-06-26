@@ -25,9 +25,9 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("Thrip.Model", "TrackSession", "Track", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.Track), "Session", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.Session))]
 [assembly: EdmRelationshipAttribute("Thrip.Model", "ConferenceSponsor", "Conference", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.Conference), "Sponsor", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.Sponsor))]
 [assembly: EdmRelationshipAttribute("Thrip.Model", "PersonItinerary", "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Thrip.Model.Person), "Itinerary", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.Itinerary), true)]
-[assembly: EdmRelationshipAttribute("Thrip.Model", "LocationScheduledSession", "Location", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Thrip.Model.Location), "ScheduledSession", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.ScheduledSession), true)]
+[assembly: EdmRelationshipAttribute("Thrip.Model", "LocationScheduledSession", "Location", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Thrip.Model.Location), "ScheduledSession", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.ScheduledSession), true)]
 [assembly: EdmRelationshipAttribute("Thrip.Model", "SessionScheduledSession", "Session", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Thrip.Model.Session), "ScheduledSession", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.ScheduledSession), true)]
-[assembly: EdmRelationshipAttribute("Thrip.Model", "TimeSlotScheduledSession", "TimeSlot", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Thrip.Model.TimeSlot), "ScheduledSession", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.ScheduledSession), true)]
+[assembly: EdmRelationshipAttribute("Thrip.Model", "TimeSlotScheduledSession", "TimeSlot", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Thrip.Model.TimeSlot), "ScheduledSession", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.ScheduledSession), true)]
 [assembly: EdmRelationshipAttribute("Thrip.Model", "ContentResourceMimeType", "ContentResource", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.ContentResource), "MimeType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Thrip.Model.MimeType), true)]
 [assembly: EdmRelationshipAttribute("Thrip.Model", "ConferenceContentResource", "Conference", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Thrip.Model.Conference), "ContentResource", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.ContentResource), true)]
 [assembly: EdmRelationshipAttribute("Thrip.Model", "PersonContentResource", "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Thrip.Model.Person), "ContentResource", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.ContentResource), true)]
@@ -373,15 +373,11 @@ namespace Thrip.Model
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="name">Initial value of the Name property.</param>
-        /// <param name="startDate">Initial value of the StartDate property.</param>
-        /// <param name="endDate">Initial value of the EndDate property.</param>
-        public static Conference CreateConference(global::System.Guid id, global::System.String name, global::System.DateTime startDate, global::System.DateTime endDate)
+        public static Conference CreateConference(global::System.Guid id, global::System.String name)
         {
             Conference conference = new Conference();
             conference.Id = id;
             conference.Name = name;
-            conference.StartDate = startDate;
-            conference.EndDate = endDate;
             return conference;
         }
 
@@ -490,9 +486,9 @@ namespace Thrip.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.DateTime StartDate
+        public Nullable<global::System.DateTime> StartDate
         {
             get
             {
@@ -507,16 +503,16 @@ namespace Thrip.Model
                 OnStartDateChanged();
             }
         }
-        private global::System.DateTime _StartDate;
-        partial void OnStartDateChanging(global::System.DateTime value);
+        private Nullable<global::System.DateTime> _StartDate;
+        partial void OnStartDateChanging(Nullable<global::System.DateTime> value);
         partial void OnStartDateChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.DateTime EndDate
+        public Nullable<global::System.DateTime> EndDate
         {
             get
             {
@@ -531,8 +527,8 @@ namespace Thrip.Model
                 OnEndDateChanged();
             }
         }
-        private global::System.DateTime _EndDate;
-        partial void OnEndDateChanging(global::System.DateTime value);
+        private Nullable<global::System.DateTime> _EndDate;
+        partial void OnEndDateChanging(Nullable<global::System.DateTime> value);
         partial void OnEndDateChanged();
     
         /// <summary>
@@ -1758,16 +1754,12 @@ namespace Thrip.Model
         /// Create a new ScheduledSession object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="locationId">Initial value of the LocationId property.</param>
         /// <param name="sessionId">Initial value of the SessionId property.</param>
-        /// <param name="timeSlotId">Initial value of the TimeSlotId property.</param>
-        public static ScheduledSession CreateScheduledSession(global::System.Guid id, global::System.Guid locationId, global::System.Guid sessionId, global::System.Guid timeSlotId)
+        public static ScheduledSession CreateScheduledSession(global::System.Guid id, global::System.Guid sessionId)
         {
             ScheduledSession scheduledSession = new ScheduledSession();
             scheduledSession.Id = id;
-            scheduledSession.LocationId = locationId;
             scheduledSession.SessionId = sessionId;
-            scheduledSession.TimeSlotId = timeSlotId;
             return scheduledSession;
         }
 
@@ -1804,9 +1796,9 @@ namespace Thrip.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Guid LocationId
+        public Nullable<global::System.Guid> LocationId
         {
             get
             {
@@ -1821,8 +1813,8 @@ namespace Thrip.Model
                 OnLocationIdChanged();
             }
         }
-        private global::System.Guid _LocationId;
-        partial void OnLocationIdChanging(global::System.Guid value);
+        private Nullable<global::System.Guid> _LocationId;
+        partial void OnLocationIdChanging(Nullable<global::System.Guid> value);
         partial void OnLocationIdChanged();
     
         /// <summary>
@@ -1852,9 +1844,9 @@ namespace Thrip.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Guid TimeSlotId
+        public Nullable<global::System.Guid> TimeSlotId
         {
             get
             {
@@ -1869,8 +1861,8 @@ namespace Thrip.Model
                 OnTimeSlotIdChanged();
             }
         }
-        private global::System.Guid _TimeSlotId;
-        partial void OnTimeSlotIdChanging(global::System.Guid value);
+        private Nullable<global::System.Guid> _TimeSlotId;
+        partial void OnTimeSlotIdChanging(Nullable<global::System.Guid> value);
         partial void OnTimeSlotIdChanged();
 
         #endregion
@@ -2496,15 +2488,11 @@ namespace Thrip.Model
         /// Create a new TimeSlot object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="startDate">Initial value of the StartDate property.</param>
-        /// <param name="endDate">Initial value of the EndDate property.</param>
         /// <param name="name">Initial value of the Name property.</param>
-        public static TimeSlot CreateTimeSlot(global::System.Guid id, global::System.DateTime startDate, global::System.DateTime endDate, global::System.String name)
+        public static TimeSlot CreateTimeSlot(global::System.Guid id, global::System.String name)
         {
             TimeSlot timeSlot = new TimeSlot();
             timeSlot.Id = id;
-            timeSlot.StartDate = startDate;
-            timeSlot.EndDate = endDate;
             timeSlot.Name = name;
             return timeSlot;
         }
@@ -2542,9 +2530,9 @@ namespace Thrip.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.DateTime StartDate
+        public Nullable<global::System.DateTime> StartDate
         {
             get
             {
@@ -2559,16 +2547,16 @@ namespace Thrip.Model
                 OnStartDateChanged();
             }
         }
-        private global::System.DateTime _StartDate;
-        partial void OnStartDateChanging(global::System.DateTime value);
+        private Nullable<global::System.DateTime> _StartDate;
+        partial void OnStartDateChanging(Nullable<global::System.DateTime> value);
         partial void OnStartDateChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.DateTime EndDate
+        public Nullable<global::System.DateTime> EndDate
         {
             get
             {
@@ -2583,8 +2571,8 @@ namespace Thrip.Model
                 OnEndDateChanged();
             }
         }
-        private global::System.DateTime _EndDate;
-        partial void OnEndDateChanging(global::System.DateTime value);
+        private Nullable<global::System.DateTime> _EndDate;
+        partial void OnEndDateChanging(Nullable<global::System.DateTime> value);
         partial void OnEndDateChanged();
     
         /// <summary>
