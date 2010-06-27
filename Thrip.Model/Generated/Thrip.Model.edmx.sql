@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 06/26/2010 15:21:51
+-- Date Created: 06/27/2010 09:02:55
 -- Generated from EDMX file: C:\Dev\Thrip\Thrip.Model\Generated\Thrip.Model.edmx
 -- --------------------------------------------------
 
@@ -77,6 +77,18 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_SessionContentResource]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ContentResources] DROP CONSTRAINT [FK_SessionContentResource];
 GO
+IF OBJECT_ID(N'[dbo].[FK_SessionSponsor_Session]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[SessionSponsor] DROP CONSTRAINT [FK_SessionSponsor_Session];
+GO
+IF OBJECT_ID(N'[dbo].[FK_SessionSponsor_Sponsor]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[SessionSponsor] DROP CONSTRAINT [FK_SessionSponsor_Sponsor];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ConferenceFacilitators_Conference]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ConferenceFacilitators] DROP CONSTRAINT [FK_ConferenceFacilitators_Conference];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ConferenceFacilitators_Person]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ConferenceFacilitators] DROP CONSTRAINT [FK_ConferenceFacilitators_Person];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -132,6 +144,12 @@ IF OBJECT_ID(N'[dbo].[TrackSession]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[ConferenceSponsor]', 'U') IS NOT NULL
     DROP TABLE [dbo].[ConferenceSponsor];
+GO
+IF OBJECT_ID(N'[dbo].[SessionSponsor]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SessionSponsor];
+GO
+IF OBJECT_ID(N'[dbo].[ConferenceFacilitators]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ConferenceFacilitators];
 GO
 
 -- --------------------------------------------------
@@ -287,6 +305,20 @@ CREATE TABLE [dbo].[ConferenceSponsor] (
 );
 GO
 
+-- Creating table 'SessionSponsor'
+CREATE TABLE [dbo].[SessionSponsor] (
+    [Sessions_Id] uniqueidentifier  NOT NULL,
+    [Sponsors_Id] uniqueidentifier  NOT NULL
+);
+GO
+
+-- Creating table 'ConferenceFacilitators'
+CREATE TABLE [dbo].[ConferenceFacilitators] (
+    [Conferences_Id] uniqueidentifier  NOT NULL,
+    [Facilitators_Id] uniqueidentifier  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -391,6 +423,18 @@ GO
 ALTER TABLE [dbo].[ConferenceSponsor]
 ADD CONSTRAINT [PK_ConferenceSponsor]
     PRIMARY KEY NONCLUSTERED ([Conferences_Id], [Sponsors_Id] ASC);
+GO
+
+-- Creating primary key on [Sessions_Id], [Sponsors_Id] in table 'SessionSponsor'
+ALTER TABLE [dbo].[SessionSponsor]
+ADD CONSTRAINT [PK_SessionSponsor]
+    PRIMARY KEY NONCLUSTERED ([Sessions_Id], [Sponsors_Id] ASC);
+GO
+
+-- Creating primary key on [Conferences_Id], [Facilitators_Id] in table 'ConferenceFacilitators'
+ALTER TABLE [dbo].[ConferenceFacilitators]
+ADD CONSTRAINT [PK_ConferenceFacilitators]
+    PRIMARY KEY NONCLUSTERED ([Conferences_Id], [Facilitators_Id] ASC);
 GO
 
 -- --------------------------------------------------
@@ -645,6 +689,52 @@ ADD CONSTRAINT [FK_SessionContentResource]
 CREATE INDEX [IX_FK_SessionContentResource]
 ON [dbo].[ContentResources]
     ([SessionId]);
+GO
+
+-- Creating foreign key on [Sessions_Id] in table 'SessionSponsor'
+ALTER TABLE [dbo].[SessionSponsor]
+ADD CONSTRAINT [FK_SessionSponsor_Session]
+    FOREIGN KEY ([Sessions_Id])
+    REFERENCES [dbo].[Sessions]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [Sponsors_Id] in table 'SessionSponsor'
+ALTER TABLE [dbo].[SessionSponsor]
+ADD CONSTRAINT [FK_SessionSponsor_Sponsor]
+    FOREIGN KEY ([Sponsors_Id])
+    REFERENCES [dbo].[Sponsors]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_SessionSponsor_Sponsor'
+CREATE INDEX [IX_FK_SessionSponsor_Sponsor]
+ON [dbo].[SessionSponsor]
+    ([Sponsors_Id]);
+GO
+
+-- Creating foreign key on [Conferences_Id] in table 'ConferenceFacilitators'
+ALTER TABLE [dbo].[ConferenceFacilitators]
+ADD CONSTRAINT [FK_ConferenceFacilitators_Conference]
+    FOREIGN KEY ([Conferences_Id])
+    REFERENCES [dbo].[Conferences]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [Facilitators_Id] in table 'ConferenceFacilitators'
+ALTER TABLE [dbo].[ConferenceFacilitators]
+ADD CONSTRAINT [FK_ConferenceFacilitators_Person]
+    FOREIGN KEY ([Facilitators_Id])
+    REFERENCES [dbo].[People]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ConferenceFacilitators_Person'
+CREATE INDEX [IX_FK_ConferenceFacilitators_Person]
+ON [dbo].[ConferenceFacilitators]
+    ([Facilitators_Id]);
 GO
 
 -- --------------------------------------------------

@@ -8,11 +8,11 @@ Thrip Conference Manager: Upcoming Conferences
 </content>
 <content name="MainContent">
   <div each="var conference in Model.Conferences">
-    <h2>${conference.Name}</h2>
+    <h2>
+      <a href="/Conference/Detail/${conference.Id}">${conference.Name}</a>
+    </h2>
     <p>${conference.Description}</p>
-    <p>
-      <a href="/Session/List/${conference.Id}">Sessions</a>
-    </p>
+    <p>${conference.StartDate} - ${conference.EndDate}</p>
 	</div>
 </content>
 <content name="Footer">

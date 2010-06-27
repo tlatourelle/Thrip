@@ -32,6 +32,8 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("Thrip.Model", "ConferenceContentResource", "Conference", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Thrip.Model.Conference), "ContentResource", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.ContentResource), true)]
 [assembly: EdmRelationshipAttribute("Thrip.Model", "PersonContentResource", "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Thrip.Model.Person), "ContentResource", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.ContentResource), true)]
 [assembly: EdmRelationshipAttribute("Thrip.Model", "SessionContentResource", "Session", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Thrip.Model.Session), "ContentResource", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.ContentResource), true)]
+[assembly: EdmRelationshipAttribute("Thrip.Model", "SessionSponsor", "Session", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.Session), "Sponsor", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.Sponsor))]
+[assembly: EdmRelationshipAttribute("Thrip.Model", "ConferenceFacilitators", "Conference", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.Conference), "Person", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Thrip.Model.Person))]
 
 #endregion
 
@@ -621,6 +623,28 @@ namespace Thrip.Model
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ContentResource>("Thrip.Model.ConferenceContentResource", "ContentResource", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "ConferenceFacilitators", "Person")]
+        public EntityCollection<Person> Facilitators
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Person>("Thrip.Model.ConferenceFacilitators", "Person");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Person>("Thrip.Model.ConferenceFacilitators", "Person", value);
                 }
             }
         }
@@ -1736,6 +1760,28 @@ namespace Thrip.Model
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "ConferenceFacilitators", "Conference")]
+        public EntityCollection<Conference> Conferences
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Conference>("Thrip.Model.ConferenceFacilitators", "Conference");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Conference>("Thrip.Model.ConferenceFacilitators", "Conference", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -2268,6 +2314,28 @@ namespace Thrip.Model
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "SessionSponsor", "Sponsor")]
+        public EntityCollection<Sponsor> Sponsors
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Sponsor>("Thrip.Model.SessionSponsor", "Sponsor");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Sponsor>("Thrip.Model.SessionSponsor", "Sponsor", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -2467,6 +2535,28 @@ namespace Thrip.Model
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Conference>("Thrip.Model.ConferenceSponsor", "Conference", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Thrip.Model", "SessionSponsor", "Session")]
+        public EntityCollection<Session> Sessions
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Session>("Thrip.Model.SessionSponsor", "Session");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Session>("Thrip.Model.SessionSponsor", "Session", value);
                 }
             }
         }

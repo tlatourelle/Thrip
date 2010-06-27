@@ -33,6 +33,8 @@ namespace Thrip.Sandbox
             dataContext.SaveChanges();
             CreateSampleSponsors(dataContext);
             dataContext.SaveChanges();
+            CreateSampleFacilitators(dataContext);
+            dataContext.SaveChanges();
         }
 
         static void CreateSampleConference(ThripEntities dataContext)
@@ -201,6 +203,23 @@ namespace Thrip.Sandbox
             _session.Conferences.Add(_conference);
             dataContext.Sessions.AddObject(_session);
 
+        }
+
+        static void CreateSampleFacilitators(ThripEntities dataContext)
+        {
+            var _conference = dataContext.Conferences.SingleOrDefault(c => c.Name == "MVC Springboard");
+
+            var _facilitator1 = dataContext.People.Where(p => p.LastName == "Wynia").SingleOrDefault();
+            _conference.Facilitators.Add(_facilitator1);
+
+            var _facilitator2 = dataContext.People.Where(p => p.LastName == "Lozano").SingleOrDefault();
+            _conference.Facilitators.Add(_facilitator2);
+
+            var _facilitator3 = dataContext.People.Where(p => p.LastName == "LaTourelle").SingleOrDefault();
+            _conference.Facilitators.Add(_facilitator3);
+
+            var _facilitator4 = dataContext.People.Where(p => p.LastName == "Tucker").SingleOrDefault();
+            _conference.Facilitators.Add(_facilitator4);
         }
 
         static void CreateSampleTimeSlots(ThripEntities dataContext)

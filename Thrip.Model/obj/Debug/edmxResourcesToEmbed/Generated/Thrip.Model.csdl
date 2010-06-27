@@ -68,6 +68,14 @@
       <End Role="Session" EntitySet="Sessions" />
       <End Role="ContentResource" EntitySet="ContentResources" />
     </AssociationSet>
+    <AssociationSet Name="SessionSponsor" Association="Thrip.Model.SessionSponsor">
+      <End Role="Session" EntitySet="Sessions" />
+      <End Role="Sponsor" EntitySet="Sponsors" />
+    </AssociationSet>
+    <AssociationSet Name="ConferenceFacilitators" Association="Thrip.Model.ConferenceFacilitators">
+      <End Role="Conference" EntitySet="Conferences" />
+      <End Role="Person" EntitySet="People" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Person">
     <Key>
@@ -84,6 +92,7 @@
     <Property Type="String" Name="URL" Nullable="true" />
     <NavigationProperty Name="Itineraries" Relationship="Thrip.Model.PersonItinerary" FromRole="Person" ToRole="Itinerary" />
     <NavigationProperty Name="ContentResources" Relationship="Thrip.Model.PersonContentResource" FromRole="Person" ToRole="ContentResource" />
+    <NavigationProperty Name="Conferences" Relationship="Thrip.Model.ConferenceFacilitators" FromRole="Person" ToRole="Conference" />
   </EntityType>
   <EntityType Name="Conference">
     <Key>
@@ -99,6 +108,7 @@
     <Property Type="String" Name="Twitter" Nullable="true" />
     <NavigationProperty Name="Sponsors" Relationship="Thrip.Model.ConferenceSponsor" FromRole="Conference" ToRole="Sponsor" />
     <NavigationProperty Name="ContentResources" Relationship="Thrip.Model.ConferenceContentResource" FromRole="Conference" ToRole="ContentResource" />
+    <NavigationProperty Name="Facilitators" Relationship="Thrip.Model.ConferenceFacilitators" FromRole="Conference" ToRole="Person" />
   </EntityType>
   <EntityType Name="Session">
     <Key>
@@ -114,6 +124,7 @@
     <NavigationProperty Name="Tracks" Relationship="Thrip.Model.TrackSession" FromRole="Session" ToRole="Track" />
     <NavigationProperty Name="ScheduledSessions" Relationship="Thrip.Model.SessionScheduledSession" FromRole="Session" ToRole="ScheduledSession" />
     <NavigationProperty Name="ContentResources" Relationship="Thrip.Model.SessionContentResource" FromRole="Session" ToRole="ContentResource" />
+    <NavigationProperty Name="Sponsors" Relationship="Thrip.Model.SessionSponsor" FromRole="Session" ToRole="Sponsor" />
   </EntityType>
   <EntityType Name="Location">
     <Key>
@@ -197,6 +208,7 @@
     <Property Type="String" Name="Email" Nullable="true" />
     <Property Type="String" Name="Twitter" Nullable="true" />
     <NavigationProperty Name="Conferences" Relationship="Thrip.Model.ConferenceSponsor" FromRole="Sponsor" ToRole="Conference" />
+    <NavigationProperty Name="Sessions" Relationship="Thrip.Model.SessionSponsor" FromRole="Sponsor" ToRole="Session" />
   </EntityType>
   <Association Name="ConferenceSponsor">
     <End Type="Thrip.Model.Conference" Role="Conference" Multiplicity="*" />
@@ -323,5 +335,13 @@
         <PropertyRef Name="SessionId" />
       </Dependent>
     </ReferentialConstraint>
+  </Association>
+  <Association Name="SessionSponsor">
+    <End Type="Thrip.Model.Session" Role="Session" Multiplicity="*" />
+    <End Type="Thrip.Model.Sponsor" Role="Sponsor" Multiplicity="*" />
+  </Association>
+  <Association Name="ConferenceFacilitators">
+    <End Type="Thrip.Model.Conference" Role="Conference" Multiplicity="*" />
+    <End Type="Thrip.Model.Person" Role="Person" Multiplicity="*" />
   </Association>
 </Schema>

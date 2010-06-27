@@ -20,5 +20,24 @@ namespace Thrip.Web.Site.Controllers
             return View(_viewModel);
         }
 
+        public ActionResult Detail(Guid id)
+        {
+            //id is the conference id
+            var _conference = DataContext.Conferences.SingleOrDefault(c => c.Id == id);
+            var _viewModel = new ConferenceDetailViewModel();
+            _viewModel.Conference = _conference;
+
+            _viewModel.Sessions = (from s in DataContext.Sessions.OrderBy(x=>Guid.NewGuid())
+                                   select s).Take(2).ToList();
+
+            _viewModel.Sponsors = (from s in _conference.Sponsors.OrderBy(x=>Guid.NewGuid())
+                                   select s).Take(1).ToList();
+
+            //_viewModel.Speakers = (from s in _conference.S
+            //                       select s).Take(5).ToList();
+
+            return View(_viewModel);
+        }
+
     }
 }

@@ -83,6 +83,7 @@
     </Compile>
     <Compile Include="Models\BaseViewModel.cs" />
     <Compile Include="Models\ConferenceIndexViewModel.cs" />
+    <Compile Include="Models\ConferenceDetailViewModel.cs" />
     <Compile Include="Models\SessionListViewModel.cs" />
     <Compile Include="PageController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
@@ -123,10 +124,27 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Web.config.Debug.tom">
+      <DependentUpon>Web.config.tom</DependentUpon>
+    </None>
+    <None Include="Web.config.tom" />
+    <None Include="Web.config.Release.tom">
+      <DependentUpon>Web.config.tom</DependentUpon>
+    </None>
+    <None Include="Web.config.j" />
+    <None Include="Web.config.Debug.j">
+      <DependentUpon>Web.config.j</DependentUpon>
+    </None>
+    <None Include="Web.config.Release.j">
+      <DependentUpon>Web.config.j</DependentUpon>
+    </None>
     <None Include="T4MVC.settings.t4" />
     <None Include="T4MVC.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>T4MVC.cs</LastGenOutput>
+    </None>
+    <None Include="Views\Conference\Detail.spark">
+      <SubType>Designer</SubType>
     </None>
     <None Include="Views\Conference\Index.spark">
       <SubType>Designer</SubType>

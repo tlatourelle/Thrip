@@ -18,6 +18,8 @@
     <EntitySet Name="PersonSessionBookmarks" EntityType="Thrip.Model.Store.PersonSessionBookmarks" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="TrackSession" EntityType="Thrip.Model.Store.TrackSession" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ConferenceSponsor" EntityType="Thrip.Model.Store.ConferenceSponsor" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SessionSponsor" EntityType="Thrip.Model.Store.SessionSponsor" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ConferenceFacilitators" EntityType="Thrip.Model.Store.ConferenceFacilitators" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_ConferenceSession_Conference" Association="Thrip.Model.Store.FK_ConferenceSession_Conference">
       <End Role="Conference" EntitySet="Conferences" />
       <End Role="ConferenceSession" EntitySet="ConferenceSession" />
@@ -97,6 +99,22 @@
     <AssociationSet Name="SessionContentResource" Association="Thrip.Model.Store.SessionContentResource">
       <End Role="Session" EntitySet="Sessions" />
       <End Role="ContentResource" EntitySet="ContentResources" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SessionSponsor_Session" Association="Thrip.Model.Store.FK_SessionSponsor_Session">
+      <End Role="Session" EntitySet="Sessions" />
+      <End Role="SessionSponsor" EntitySet="SessionSponsor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SessionSponsor_Sponsor" Association="Thrip.Model.Store.FK_SessionSponsor_Sponsor">
+      <End Role="Sponsor" EntitySet="Sponsors" />
+      <End Role="SessionSponsor" EntitySet="SessionSponsor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConferenceFacilitators_Conference" Association="Thrip.Model.Store.FK_ConferenceFacilitators_Conference">
+      <End Role="Conference" EntitySet="Conferences" />
+      <End Role="ConferenceFacilitators" EntitySet="ConferenceFacilitators" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConferenceFacilitators_Person" Association="Thrip.Model.Store.FK_ConferenceFacilitators_Person">
+      <End Role="Person" EntitySet="People" />
+      <End Role="ConferenceFacilitators" EntitySet="ConferenceFacilitators" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="People">
@@ -253,6 +271,22 @@
     </Key>
     <Property Name="Conferences_Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Sponsors_Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SessionSponsor">
+    <Key>
+      <PropertyRef Name="Sessions_Id" />
+      <PropertyRef Name="Sponsors_Id" />
+    </Key>
+    <Property Name="Sessions_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Sponsors_Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ConferenceFacilitators">
+    <Key>
+      <PropertyRef Name="Conferences_Id" />
+      <PropertyRef Name="Facilitators_Id" />
+    </Key>
+    <Property Name="Conferences_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Facilitators_Id" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <Association Name="PersonItinerary">
     <End Role="Person" Type="Thrip.Model.Store.People" Multiplicity="1" />
@@ -491,6 +525,54 @@
       </Principal>
       <Dependent Role="ConferenceSponsor">
         <PropertyRef Name="Sponsors_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SessionSponsor_Session">
+    <End Role="Session" Type="Thrip.Model.Store.Sessions" Multiplicity="1" />
+    <End Role="SessionSponsor" Type="Thrip.Model.Store.SessionSponsor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Session">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SessionSponsor">
+        <PropertyRef Name="Sessions_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SessionSponsor_Sponsor">
+    <End Role="SessionSponsor" Type="Thrip.Model.Store.SessionSponsor" Multiplicity="*" />
+    <End Role="Sponsor" Type="Thrip.Model.Store.Sponsors" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Sponsor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SessionSponsor">
+        <PropertyRef Name="Sponsors_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConferenceFacilitators_Conference">
+    <End Role="Conference" Type="Thrip.Model.Store.Conferences" Multiplicity="1" />
+    <End Role="ConferenceFacilitators" Type="Thrip.Model.Store.ConferenceFacilitators" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Conference">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ConferenceFacilitators">
+        <PropertyRef Name="Conferences_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConferenceFacilitators_Person">
+    <End Role="ConferenceFacilitators" Type="Thrip.Model.Store.ConferenceFacilitators" Multiplicity="*" />
+    <End Role="Person" Type="Thrip.Model.Store.People" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ConferenceFacilitators">
+        <PropertyRef Name="Facilitators_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

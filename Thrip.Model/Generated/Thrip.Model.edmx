@@ -23,6 +23,8 @@
     <EntitySet Name="PersonSessionBookmarks" EntityType="Thrip.Model.Store.PersonSessionBookmarks" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="TrackSession" EntityType="Thrip.Model.Store.TrackSession" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ConferenceSponsor" EntityType="Thrip.Model.Store.ConferenceSponsor" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SessionSponsor" EntityType="Thrip.Model.Store.SessionSponsor" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ConferenceFacilitators" EntityType="Thrip.Model.Store.ConferenceFacilitators" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_ConferenceSession_Conference" Association="Thrip.Model.Store.FK_ConferenceSession_Conference">
       <End Role="Conference" EntitySet="Conferences" />
       <End Role="ConferenceSession" EntitySet="ConferenceSession" />
@@ -102,6 +104,22 @@
     <AssociationSet Name="SessionContentResource" Association="Thrip.Model.Store.SessionContentResource">
       <End Role="Session" EntitySet="Sessions" />
       <End Role="ContentResource" EntitySet="ContentResources" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SessionSponsor_Session" Association="Thrip.Model.Store.FK_SessionSponsor_Session">
+      <End Role="Session" EntitySet="Sessions" />
+      <End Role="SessionSponsor" EntitySet="SessionSponsor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SessionSponsor_Sponsor" Association="Thrip.Model.Store.FK_SessionSponsor_Sponsor">
+      <End Role="Sponsor" EntitySet="Sponsors" />
+      <End Role="SessionSponsor" EntitySet="SessionSponsor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConferenceFacilitators_Conference" Association="Thrip.Model.Store.FK_ConferenceFacilitators_Conference">
+      <End Role="Conference" EntitySet="Conferences" />
+      <End Role="ConferenceFacilitators" EntitySet="ConferenceFacilitators" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConferenceFacilitators_Person" Association="Thrip.Model.Store.FK_ConferenceFacilitators_Person">
+      <End Role="Person" EntitySet="People" />
+      <End Role="ConferenceFacilitators" EntitySet="ConferenceFacilitators" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="People">
@@ -258,6 +276,22 @@
     </Key>
     <Property Name="Conferences_Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Sponsors_Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SessionSponsor">
+    <Key>
+      <PropertyRef Name="Sessions_Id" />
+      <PropertyRef Name="Sponsors_Id" />
+    </Key>
+    <Property Name="Sessions_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Sponsors_Id" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ConferenceFacilitators">
+    <Key>
+      <PropertyRef Name="Conferences_Id" />
+      <PropertyRef Name="Facilitators_Id" />
+    </Key>
+    <Property Name="Conferences_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Facilitators_Id" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <Association Name="PersonItinerary">
     <End Role="Person" Type="Thrip.Model.Store.People" Multiplicity="1" />
@@ -499,6 +533,54 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_SessionSponsor_Session">
+    <End Role="Session" Type="Thrip.Model.Store.Sessions" Multiplicity="1" />
+    <End Role="SessionSponsor" Type="Thrip.Model.Store.SessionSponsor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Session">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SessionSponsor">
+        <PropertyRef Name="Sessions_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SessionSponsor_Sponsor">
+    <End Role="SessionSponsor" Type="Thrip.Model.Store.SessionSponsor" Multiplicity="*" />
+    <End Role="Sponsor" Type="Thrip.Model.Store.Sponsors" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Sponsor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SessionSponsor">
+        <PropertyRef Name="Sponsors_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConferenceFacilitators_Conference">
+    <End Role="Conference" Type="Thrip.Model.Store.Conferences" Multiplicity="1" />
+    <End Role="ConferenceFacilitators" Type="Thrip.Model.Store.ConferenceFacilitators" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Conference">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ConferenceFacilitators">
+        <PropertyRef Name="Conferences_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConferenceFacilitators_Person">
+    <End Role="ConferenceFacilitators" Type="Thrip.Model.Store.ConferenceFacilitators" Multiplicity="*" />
+    <End Role="Person" Type="Thrip.Model.Store.People" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ConferenceFacilitators">
+        <PropertyRef Name="Facilitators_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -571,6 +653,14 @@
             <End Role="Session" EntitySet="Sessions" />
             <End Role="ContentResource" EntitySet="ContentResources" />
           </AssociationSet>
+          <AssociationSet Name="SessionSponsor" Association="Thrip.Model.SessionSponsor">
+            <End Role="Session" EntitySet="Sessions" />
+            <End Role="Sponsor" EntitySet="Sponsors" />
+          </AssociationSet>
+          <AssociationSet Name="ConferenceFacilitators" Association="Thrip.Model.ConferenceFacilitators">
+            <End Role="Conference" EntitySet="Conferences" />
+            <End Role="Person" EntitySet="People" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Person">
           <Key>
@@ -587,6 +677,7 @@
           <Property Type="String" Name="URL" Nullable="true" />
           <NavigationProperty Name="Itineraries" Relationship="Thrip.Model.PersonItinerary" FromRole="Person" ToRole="Itinerary" />
           <NavigationProperty Name="ContentResources" Relationship="Thrip.Model.PersonContentResource" FromRole="Person" ToRole="ContentResource" />
+          <NavigationProperty Name="Conferences" Relationship="Thrip.Model.ConferenceFacilitators" FromRole="Person" ToRole="Conference" />
         </EntityType>
         <EntityType Name="Conference">
           <Key>
@@ -602,6 +693,7 @@
           <Property Type="String" Name="Twitter" Nullable="true" />
           <NavigationProperty Name="Sponsors" Relationship="Thrip.Model.ConferenceSponsor" FromRole="Conference" ToRole="Sponsor" />
           <NavigationProperty Name="ContentResources" Relationship="Thrip.Model.ConferenceContentResource" FromRole="Conference" ToRole="ContentResource" />
+          <NavigationProperty Name="Facilitators" Relationship="Thrip.Model.ConferenceFacilitators" FromRole="Conference" ToRole="Person" />
         </EntityType>
         <EntityType Name="Session">
           <Key>
@@ -617,6 +709,7 @@
           <NavigationProperty Name="Tracks" Relationship="Thrip.Model.TrackSession" FromRole="Session" ToRole="Track" />
           <NavigationProperty Name="ScheduledSessions" Relationship="Thrip.Model.SessionScheduledSession" FromRole="Session" ToRole="ScheduledSession" />
           <NavigationProperty Name="ContentResources" Relationship="Thrip.Model.SessionContentResource" FromRole="Session" ToRole="ContentResource" />
+          <NavigationProperty Name="Sponsors" Relationship="Thrip.Model.SessionSponsor" FromRole="Session" ToRole="Sponsor" />
         </EntityType>
         <EntityType Name="Location">
           <Key>
@@ -700,6 +793,7 @@
           <Property Type="String" Name="Email" Nullable="true" />
           <Property Type="String" Name="Twitter" Nullable="true" />
           <NavigationProperty Name="Conferences" Relationship="Thrip.Model.ConferenceSponsor" FromRole="Sponsor" ToRole="Conference" />
+          <NavigationProperty Name="Sessions" Relationship="Thrip.Model.SessionSponsor" FromRole="Sponsor" ToRole="Session" />
         </EntityType>
         <Association Name="ConferenceSponsor">
           <End Type="Thrip.Model.Conference" Role="Conference" Multiplicity="*" />
@@ -826,6 +920,14 @@
               <PropertyRef Name="SessionId" />
             </Dependent>
           </ReferentialConstraint>
+        </Association>
+        <Association Name="SessionSponsor">
+          <End Type="Thrip.Model.Session" Role="Session" Multiplicity="*" />
+          <End Type="Thrip.Model.Sponsor" Role="Sponsor" Multiplicity="*" />
+        </Association>
+        <Association Name="ConferenceFacilitators">
+          <End Type="Thrip.Model.Conference" Role="Conference" Multiplicity="*" />
+          <End Type="Thrip.Model.Person" Role="Person" Multiplicity="*" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -999,6 +1101,22 @@
         <ScalarProperty Name="Id" ColumnName="Sponsors_Id" />
       </EndProperty>
     </AssociationSetMapping>
+    <AssociationSetMapping Name="SessionSponsor" TypeName="Thrip.Model.SessionSponsor" StoreEntitySet="SessionSponsor">
+      <EndProperty Name="Session">
+        <ScalarProperty Name="Id" ColumnName="Sessions_Id" />
+      </EndProperty>
+      <EndProperty Name="Sponsor">
+        <ScalarProperty Name="Id" ColumnName="Sponsors_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ConferenceFacilitators" TypeName="Thrip.Model.ConferenceFacilitators" StoreEntitySet="ConferenceFacilitators">
+      <EndProperty Name="Conference">
+        <ScalarProperty Name="Id" ColumnName="Conferences_Id" />
+      </EndProperty>
+      <EndProperty Name="Person">
+        <ScalarProperty Name="Id" ColumnName="Facilitators_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
@@ -1020,14 +1138,14 @@
     <Diagrams>
       <Diagram Name="Thrip.Model" >
         <EntityTypeShape EntityType="Thrip.Model.Person" Width="1.5" PointX="3" PointY="2.875" Height="2.7494921874999996" />
-        <EntityTypeShape EntityType="Thrip.Model.Conference" Width="1.5" PointX="5.25" PointY="6.75" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="Thrip.Model.Conference" Width="1.5" PointX="5.375" PointY="6.375" Height="2.9417936197916656" />
         <EntityTypeShape EntityType="Thrip.Model.Session" Width="1.5" PointX="7.5" PointY="4.5" Height="2.7494921874999996" />
         <EntityTypeShape EntityType="Thrip.Model.Location" Width="1.5" PointX="9.375" PointY="6.875" Height="1.7879850260416639" />
         <EntityTypeShape EntityType="Thrip.Model.TimeSlot" Width="1.5" PointX="7.5" PointY="1.125" Height="1.9802864583333335" />
         <EntityTypeShape EntityType="Thrip.Model.ScheduledSession" Width="1.5" PointX="9.75" PointY="3.875" Height="2.1725878906249996" />
         <AssociationConnector Association="Thrip.Model.ConferenceSession">
-          <ConnectorPoint PointX="6.75" PointY="6.99974609375" />
-          <ConnectorPoint PointX="7.5" PointY="6.99974609375" />
+          <ConnectorPoint PointX="6.875" PointY="6.9083968098958337" />
+          <ConnectorPoint PointX="7.5" PointY="6.9083968098958337" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Thrip.Model.Itinerary" Width="1.5" PointX="0.75" PointY="2.125" Height="1.59568359375" />
         <AssociationConnector Association="Thrip.Model.ItineraryScheduledSession">
@@ -1042,8 +1160,8 @@
           <ConnectorPoint PointX="10.70312575" PointY="3.875" />
         </AssociationConnector>
         <AssociationConnector Association="Thrip.Model.FacilitatorSession">
-          <ConnectorPoint PointX="4.5" PointY="5.2374886067708335" />
-          <ConnectorPoint PointX="7.5" PointY="5.2374886067708335" />
+          <ConnectorPoint PointX="4.5" PointY="5.6050056658188492" />
+          <ConnectorPoint PointX="7.5" PointY="5.6050056658188492" />
         </AssociationConnector>
         <AssociationConnector Association="Thrip.Model.PersonSessionBookmarks">
           <ConnectorPoint PointX="4.5" PointY="4.9814868164062505" />
@@ -1055,20 +1173,18 @@
         </AssociationConnector>
         <EntityTypeShape EntityType="Thrip.Model.Track" Width="1.5" PointX="5.25" PointY="3" Height="1.7879850260416674" />
         <AssociationConnector Association="Thrip.Model.TrackSession">
-          <ConnectorPoint PointX="6.75" PointY="4.7879850260416674" />
-          <ConnectorPoint PointX="7.125" PointY="5.1629850260416674" />
-          <ConnectorPoint PointX="7.125" PointY="4.125" />
-          <ConnectorPoint PointX="7.5" PointY="4.5" />
+          <ConnectorPoint PointX="5.28125" PointY="4.7879850260416674" />
+          <ConnectorPoint PointX="5.28125" PointY="5.9896118799845386" />
+          <ConnectorPoint PointX="6.760416666666667" PointY="5.9896118799845377" />
+          <ConnectorPoint PointX="6.927083333333333" PointY="5.9896118799845386" />
+          <ConnectorPoint PointX="7.5" PointY="5.9896118799845386" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Thrip.Model.Sponsor" Width="1.5" PointX="0.75" PointY="4.75" Height="2.1725878906249996" />
         <AssociationConnector Association="Thrip.Model.ConferenceSponsor">
-          <ConnectorPoint PointX="5.2499999999999982" PointY="6.75" />
-          <ConnectorPoint PointX="4.875" PointY="6.3750000000000018" />
-          <ConnectorPoint PointX="3.5989593333333336" PointY="6.3750000000000009" />
-          <ConnectorPoint PointX="3.4322926666666667" PointY="6.3750000000000018" />
-          <ConnectorPoint PointX="2.625" PointY="6.3750000000000018" />
-          <ConnectorPoint PointX="2.625" PointY="4.375" />
-          <ConnectorPoint PointX="2.25" PointY="4.75" />
+          <ConnectorPoint PointX="5.375" PointY="6.53125" />
+          <ConnectorPoint PointX="3.5989593333333336" PointY="6.5312499999999991" />
+          <ConnectorPoint PointX="3.4322926666666667" PointY="6.53125" />
+          <ConnectorPoint PointX="2.25" PointY="6.53125" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Thrip.Model.ContentResource" Width="1.5" PointX="3" PointY="6.75" Height="2.1725878906249996" />
         <EntityTypeShape EntityType="Thrip.Model.MimeType" Width="1.5" PointX="0.625" PointY="9.625" Height="1.7879850260416657" />
@@ -1095,8 +1211,8 @@
           <ConnectorPoint PointX="2.125" PointY="10.518992513020834" />
         </AssociationConnector>
         <AssociationConnector Association="Thrip.Model.ConferenceContentResource">
-          <ConnectorPoint PointX="5.25" PointY="8.0285953776041676" />
-          <ConnectorPoint PointX="4.5" PointY="8.0285953776041676" />
+          <ConnectorPoint PointX="5.375" PointY="8.0333968098958337" />
+          <ConnectorPoint PointX="4.5" PointY="8.0333968098958337" />
         </AssociationConnector>
         <AssociationConnector Association="Thrip.Model.PersonContentResource">
           <ConnectorPoint PointX="3.75" PointY="6.0090950520833317" />
@@ -1104,8 +1220,23 @@
         </AssociationConnector>
         <AssociationConnector Association="Thrip.Model.SessionContentResource">
           <ConnectorPoint PointX="8.25" PointY="7.4417936197916665" />
-          <ConnectorPoint PointX="8.25" PointY="9.9153450520833317" />
-          <ConnectorPoint PointX="4.5" PointY="9.9153450520833317" />
+          <ConnectorPoint PointX="8.25" PointY="9.7278450520833317" />
+          <ConnectorPoint PointX="4.5" PointY="9.7278450520833317" />
+        </AssociationConnector>
+        <AssociationConnector Association="Thrip.Model.SessionSponsor">
+          <ConnectorPoint PointX="7.5" PointY="6.2881982421875" />
+          <ConnectorPoint PointX="6.927083333333333" PointY="6.2881982421874989" />
+          <ConnectorPoint PointX="6.760416666666667" PointY="6.2881982421875" />
+          <ConnectorPoint PointX="3.8333333333333335" PointY="6.2881982421874989" />
+          <ConnectorPoint PointX="3.6666666666666665" PointY="6.2881982421875" />
+          <ConnectorPoint PointX="2.25" PointY="6.2881982421875" />
+        </AssociationConnector>
+        <AssociationConnector Association="Thrip.Model.ConferenceFacilitators">
+          <ConnectorPoint PointX="6.84375" PointY="6.375" />
+          <ConnectorPoint PointX="6.84375" PointY="5.7517161839803066" />
+          <ConnectorPoint PointX="5.364583333333333" PointY="5.7517161839803057" />
+          <ConnectorPoint PointX="5.197916666666667" PointY="5.7517161839803066" />
+          <ConnectorPoint PointX="4.5" PointY="5.7517161839803066" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

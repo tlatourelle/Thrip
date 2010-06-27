@@ -10,10 +10,10 @@
     <ItemStatistics item="Default">
       <Item value="Conference`0" priority="0" />
       <Item value="var" priority="3" />
-      <Item value="dataContext" priority="0" />
+      <Item value="dataContext" priority="2" />
       <Item value="c" priority="1" />
       <Item value="_session" priority="0" />
-      <Item value="_conference" priority="0" />
+      <Item value="_conference" priority="1" />
       <Item value="BaseViewModel`0" priority="0" />
       <Item value="List" priority="0" />
       <Item value="new" priority="1" />
@@ -25,25 +25,44 @@
       <Item value="DateTime`0" priority="0" />
       <Item value="_viewModel" priority="1" />
       <Item value="_upcomingConferences" priority="0" />
-      <Item value="Guid`0" priority="0" />
+      <Item value="Guid`0" priority="1" />
       <Item value="IViewDataContainer`0" priority="0" />
+      <Item value="Session`0" priority="0" />
+      <Item value="Person`0" priority="0" />
+      <Item value="Sponsor`0" priority="0" />
+      <Item value="select" priority="0" />
+      <Item value="foreach" priority="0" />
+      <Item value="in" priority="0" />
+      <Item value="using" priority="2" />
+      <Item value="System" priority="1" />
+      <Item value="Thrip" priority="0" />
+      <Item value="Model.Util" priority="0" />
+      <Item value="DataContext" priority="1" />
+      <Item value="Data" priority="0" />
+      <Item value="x" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Thrip.Model.ThripEntities">
       <Item value="Conferences" priority="1" />
+      <Item value="SaveChanges`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Data.Objects.ObjectSet`1">
       <Item value="Where`0" priority="1" />
       <Item value="Single`1" priority="0" />
+      <Item value="OrderBy`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Thrip.Model.Conference">
       <Item value="Name" priority="0" />
       <Item value="StartDate" priority="0" />
+      <Item value="Sessions" priority="2" />
+      <Item value="Sponsors" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Thrip.Model.Session">
       <Item value="Conferences" priority="0" />
+      <Item value="Id" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Data.Objects.DataClasses.EntityCollection`1">
       <Item value="Add`0" priority="0" />
+      <Item value="Radomized`1" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.DateTime">
       <Item value="Now" priority="0" />
@@ -54,56 +73,73 @@
     <ItemStatistics item="Qualified:Thrip.Web.Site.Models.ConferenceIndexViewModel">
       <Item value="Conferences" priority="0" />
     </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IEnumerable`1">
+      <Item value="ToList`1" priority="0" />
+      <Item value="Take`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Thrip.Web.Site.Models.ConferenceDetailViewModel">
+      <Item value="Speakers" priority="0" />
+      <Item value="Sponsors" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Guid">
+      <Item value="NewGuid`0" priority="0" />
+    </ItemStatistics>
   </CompletionStatisticsManager>
   <RecentFiles>
     <RecentFiles>
-      <File id="9DF883D4-0900-4BCC-9B12-85C5772741DE/f:App.config" caret="325" fromTop="2" />
-      <File id="9A6FA031-BFAD-4B37-88AF-3177B3AEAAFA/d:Generated/f:Thrip.Model.edmx.sql" caret="178" fromTop="2" />
-      <File id="9DF883D4-0900-4BCC-9B12-85C5772741DE/f:Program.cs" caret="6144" fromTop="22" />
       <File id="D2A7B1C3-0295-4C6A-BE32-76FF09BF7C25/f:Global.asax.cs" caret="985" fromTop="6" />
       <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/f:Global.asax.cs" caret="981" fromTop="5" />
       <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Shared/f:Application.spark" caret="1049" fromTop="22" />
       <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:PageController.cs" caret="201" fromTop="7" />
       <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Models/f:BaseViewModel.cs" caret="0" fromTop="0" />
       <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:BaseController.cs" caret="226" fromTop="9" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Page/f:Home.spark" caret="0" fromTop="0" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/f:Web.config" caret="462" fromTop="9" />
       <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Models/f:ConferenceIndexViewModel.cs" caret="227" fromTop="9" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:ConferenceController.cs" caret="573" fromTop="17" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Conference/f:Index.spark" caret="282" fromTop="7" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:SessionController.cs" caret="414" fromTop="16" />
+      <File id="9DF883D4-0900-4BCC-9B12-85C5772741DE/f:App.config.tom" caret="497" fromTop="4" />
+      <File id="9DF883D4-0900-4BCC-9B12-85C5772741DE/f:App.config" caret="330" fromTop="2" />
+      <File id="9DF883D4-0900-4BCC-9B12-85C5772741DE/f:Program.cs" caret="983" fromTop="0" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Page/f:Home.spark" caret="319" fromTop="11" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Conference/f:Index.spark" caret="385" fromTop="10" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:SessionController.cs" caret="272" fromTop="13" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Models/f:SessionListViewModel.cs" caret="0" fromTop="0" />
+      <File id="9A6FA031-BFAD-4B37-88AF-3177B3AEAAFA/d:Generated/f:Thrip.Model.edmx.sql" caret="383" fromTop="7" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/f:Web.config.tom" caret="460" fromTop="9" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/f:Web.config" caret="205" fromTop="8" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Models/f:ConferenceDetailViewModel.cs" caret="136" fromTop="5" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Conference/f:Detail.spark" caret="868" fromTop="10" />
+      <File id="9A6FA031-BFAD-4B37-88AF-3177B3AEAAFA/d:Utils/f:LinqRandom.cs" caret="425" fromTop="9" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:ConferenceController.cs" caret="348" fromTop="6" />
     </RecentFiles>
     <RecentEdits>
-      <File id="9DF883D4-0900-4BCC-9B12-85C5772741DE/f:Program.cs" caret="4233" fromTop="12" />
-      <File id="9DF883D4-0900-4BCC-9B12-85C5772741DE/f:Program.cs" caret="4681" fromTop="21" />
-      <File id="9DF883D4-0900-4BCC-9B12-85C5772741DE/f:Program.cs" caret="5123" fromTop="14" />
-      <File id="9DF883D4-0900-4BCC-9B12-85C5772741DE/f:Program.cs" caret="5591" fromTop="17" />
-      <File id="9DF883D4-0900-4BCC-9B12-85C5772741DE/f:Program.cs" caret="6074" fromTop="20" />
-      <File id="9A6FA031-BFAD-4B37-88AF-3177B3AEAAFA/d:Generated/f:Thrip.Model.edmx.sql" caret="36" fromTop="6" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/f:Global.asax.cs" caret="981" fromTop="5" />
-      <File id="D2A7B1C3-0295-4C6A-BE32-76FF09BF7C25/f:Global.asax.cs" caret="985" fromTop="6" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Shared/f:Application.spark" caret="1078" fromTop="23" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Shared/f:Application.spark" caret="727" fromTop="14" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Shared/f:Application.spark" caret="217" fromTop="4" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Shared/f:Application.spark" caret="877" fromTop="20" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Shared/f:Application.spark" caret="1023" fromTop="22" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Page/f:Home.spark" caret="352" fromTop="6" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Page/f:Home.spark" caret="277" fromTop="8" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:PageController.cs" caret="201" fromTop="7" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:ConferenceController.cs" caret="0" fromTop="0" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Models/f:BaseViewModel.cs" caret="0" fromTop="0" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:BaseController.cs" caret="361" fromTop="14" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:ConferenceController.cs" caret="229" fromTop="8" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:BaseController.cs" caret="262" fromTop="10" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Conference/f:Index.spark" caret="569" fromTop="12" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Conference/f:Index.spark" caret="68" fromTop="0" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Conference/f:Index.spark" caret="63" fromTop="0" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/f:Web.config" caret="462" fromTop="9" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Models/f:ConferenceIndexViewModel.cs" caret="227" fromTop="9" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:ConferenceController.cs" caret="573" fromTop="17" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Conference/f:Index.spark" caret="485" fromTop="13" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:SessionController.cs" caret="196" fromTop="7" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:SessionController.cs" caret="386" fromTop="15" />
+      <File id="9DF883D4-0900-4BCC-9B12-85C5772741DE/f:Program.cs" caret="1071" fromTop="25" />
+      <File id="9DF883D4-0900-4BCC-9B12-85C5772741DE/f:Program.cs" caret="368" fromTop="8" />
+      <File id="9DF883D4-0900-4BCC-9B12-85C5772741DE/f:App.config" caret="330" fromTop="2" />
+      <File id="9DF883D4-0900-4BCC-9B12-85C5772741DE/f:App.config.tom" caret="330" fromTop="2" />
+      <File id="9DF883D4-0900-4BCC-9B12-85C5772741DE/f:Program.cs" caret="1602" fromTop="23" />
+      <File id="9DF883D4-0900-4BCC-9B12-85C5772741DE/f:Program.cs" caret="1929" fromTop="19" />
+      <File id="9DF883D4-0900-4BCC-9B12-85C5772741DE/f:Program.cs" caret="11916" fromTop="0" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Page/f:Home.spark" caret="336" fromTop="12" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Conference/f:Index.spark" caret="385" fromTop="10" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:ConferenceController.cs" caret="1427" fromTop="28" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:ConferenceController.cs" caret="665" fromTop="20" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Models/f:ConferenceDetailViewModel.cs" caret="230" fromTop="9" />
+      <File id="9A6FA031-BFAD-4B37-88AF-3177B3AEAAFA/d:Utils/f:LinqRandom.cs" caret="817" fromTop="27" />
+      <File id="9A6FA031-BFAD-4B37-88AF-3177B3AEAAFA/d:Utils/f:LinqRandom.cs" caret="129" fromTop="3" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:ConferenceController.cs" caret="57095" fromTop="17" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Models/f:ConferenceDetailViewModel.cs" caret="420" fromTop="14" />
+      <File id="9A6FA031-BFAD-4B37-88AF-3177B3AEAAFA/d:Generated/f:Thrip.Model.edmx.sql" caret="0" fromTop="11" />
+      <File id="9A6FA031-BFAD-4B37-88AF-3177B3AEAAFA/d:Generated/f:Thrip.Model.edmx.sql" caret="36" fromTop="7" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Conference/f:Detail.spark" caret="880" fromTop="30" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/f:Web.config.tom" caret="460" fromTop="9" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/f:Web.config" caret="460" fromTop="9" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Conference/f:Detail.spark" caret="281" fromTop="7" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Conference/f:Detail.spark" caret="64" fromTop="0" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Conference/f:Detail.spark" caret="617" fromTop="4" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Conference/f:Detail.spark" caret="856" fromTop="14" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Conference/f:Detail.spark" caret="585" fromTop="3" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Conference/f:Detail.spark" caret="488" fromTop="10" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Conference/f:Detail.spark" caret="722" fromTop="12" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:ConferenceController.cs" caret="131" fromTop="4" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:ConferenceController.cs" caret="1182" fromTop="23" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>

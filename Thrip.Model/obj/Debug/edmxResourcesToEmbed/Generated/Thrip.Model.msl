@@ -167,5 +167,21 @@
         <ScalarProperty Name="Id" ColumnName="Sponsors_Id" />
       </EndProperty>
     </AssociationSetMapping>
+    <AssociationSetMapping Name="SessionSponsor" TypeName="Thrip.Model.SessionSponsor" StoreEntitySet="SessionSponsor">
+      <EndProperty Name="Session">
+        <ScalarProperty Name="Id" ColumnName="Sessions_Id" />
+      </EndProperty>
+      <EndProperty Name="Sponsor">
+        <ScalarProperty Name="Id" ColumnName="Sponsors_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ConferenceFacilitators" TypeName="Thrip.Model.ConferenceFacilitators" StoreEntitySet="ConferenceFacilitators">
+      <EndProperty Name="Conference">
+        <ScalarProperty Name="Id" ColumnName="Conferences_Id" />
+      </EndProperty>
+      <EndProperty Name="Person">
+        <ScalarProperty Name="Id" ColumnName="Facilitators_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>
