@@ -7,12 +7,12 @@ using Thrip.Web.Site.Models;
 
 namespace Thrip.Web.Site.Controllers
 {
-    public class SessionController : BaseController
+    public partial class SessionController : BaseController
     {
         //
         // GET: /Session/
 
-        public ActionResult List(Guid id)
+        public virtual ActionResult List(Guid id)
         {
             //id is the conference id
             var _conference = DataContext.Conferences.SingleOrDefault(c => c.Id == id);

@@ -7,12 +7,12 @@ using Thrip.Web.Site.Models;
 
 namespace Thrip.Web.Site.Controllers
 {
-    public class ConferenceController : BaseController
+    public partial class ConferenceController : BaseController
     {
         //
         // GET: /Conference/
 
-        public ActionResult Index()
+        public virtual ActionResult Index()
         {
             var _upcomingConferences = DataContext.Conferences.Where(c => c.StartDate > DateTime.Now).ToList();
             var _viewModel = new ConferenceIndexViewModel();
@@ -20,7 +20,7 @@ namespace Thrip.Web.Site.Controllers
             return View(_viewModel);
         }
 
-        public ActionResult Detail(Guid id)
+        public virtual ActionResult Detail(Guid id)
         {
             //id is the conference id
             var _conference = DataContext.Conferences.SingleOrDefault(c => c.Id == id);
@@ -33,8 +33,8 @@ namespace Thrip.Web.Site.Controllers
             _viewModel.Sponsors = (from s in _conference.Sponsors.OrderBy(x=>Guid.NewGuid())
                                    select s).Take(1).ToList();
 
-            //_viewModel.Speakers = (from s in _conference.S
-            //                       select s).Take(5).ToList();
+            _viewModel.Facilitators = (from f in _conference.Facilitators.OrderBy(x=>Guid.NewGuid())
+                                   select f).Take(2).ToList();
 
             return View(_viewModel);
         }

@@ -13,6 +13,17 @@ Thrip Conference Manager: Conference Info
 	</div>
 
   <div>
+    <h2>Speaker Spotlight</h2>
+    <div each="var facilitator in Model.Facilitators">
+      <h3>${facilitator.FirstName}</h3>
+      <p>${facilitator.LastName}</p>
+    </div>
+    <p>
+      <a href="/Facilitator/List/${Model.Conference.Id}">All Speakers</a>
+    </p>
+  </div>
+
+  <div>
     <h2>Sponsor Spotlight</h2>
     <div each="var sponsor in Model.Sponsors">
       <h3>${sponsor.Name}</h3>

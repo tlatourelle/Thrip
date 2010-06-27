@@ -3,20 +3,11 @@ C:\Dev\Thrip\Thrip.Web.Admin\bin\Thrip.Web.Admin.pdb
 C:\Dev\Thrip\Thrip.Web.Admin\bin\Spark.dll
 C:\Dev\Thrip\Thrip.Web.Admin\bin\Spark.Web.Mvc.dll
 C:\Dev\Thrip\Thrip.Web.Admin\bin\System.Web.Mvc.dll
+C:\Dev\Thrip\Thrip.Web.Admin\bin\Thrip.Model.dll
+C:\Dev\Thrip\Thrip.Web.Admin\bin\Thrip.Model.pdb
 C:\Dev\Thrip\Thrip.Web.Admin\bin\Spark.pdb
 C:\Dev\Thrip\Thrip.Web.Admin\bin\Spark.Web.Mvc.pdb
 C:\Dev\Thrip\Thrip.Web.Admin\bin\System.Web.Mvc.xml
 C:\Dev\Thrip\Thrip.Web.Admin\obj\Debug\ResolveAssemblyReference.cache
 C:\Dev\Thrip\Thrip.Web.Admin\obj\Debug\Thrip.Web.Admin.dll
 C:\Dev\Thrip\Thrip.Web.Admin\obj\Debug\Thrip.Web.Admin.pdb
-D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Web.Admin\bin\Thrip.Web.Admin.dll
-D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Web.Admin\bin\Thrip.Web.Admin.pdb
-D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Web.Admin\bin\Spark.dll
-D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Web.Admin\bin\Spark.Web.Mvc.dll
-D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Web.Admin\bin\System.Web.Mvc.dll
-D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Web.Admin\bin\Spark.pdb
-D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Web.Admin\bin\Spark.Web.Mvc.pdb
-D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Web.Admin\bin\System.Web.Mvc.xml
-D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Web.Admin\obj\Debug\ResolveAssemblyReference.cache
-D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Web.Admin\obj\Debug\Thrip.Web.Admin.dll
-D:\dropbox\My Dropbox\Software Projects\Thrip\Thrip.Web.Admin\obj\Debug\Thrip.Web.Admin.pdb

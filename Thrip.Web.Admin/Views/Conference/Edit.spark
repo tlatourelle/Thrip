@@ -1,0 +1,49 @@
+﻿<viewdata model="Thrip.Web.Admin.Models.ConferenceEditViewModel" />
+<content name="PageTitle">
+Conference List
+</content>
+<content name="HeaderUserMenu">
+	<use content="UserMenu"/>
+</content>
+<content name="MainMenuList">
+	<use content="MainMenu" />
+</content>
+<content name="MainContent">
+	<div class="span-18">
+		<div class="Section">
+			<div class="SectionHeading">
+				Edit Conference
+			</div>
+			<div class="SectionContent">
+        <p>
+          Enter the basic information about your conference and click "Update".
+        </p>
+        <form id="ConferenceForm" method="post" action="/Conference/Update">
+          <dl>
+            <use file="ConferenceFormFields" Conference="Model.Conference" />
+            <dt>
+
+            </dt>
+            <dd>
+              <button onclick="$('#CreateConferenceForm').submit();return false;">Update</button>
+            </dd>
+          </dl>
+        </form>
+			</div>
+		</div>
+	</div>
+  <div class="span-6 last">
+    <div class="Section">
+      <div class="SectionHeading">
+        Actions
+      </div>
+      <div class="SectionContent">
+        <ul>
+          <li>
+            <a href="/Conference/AddSession">Add a Session to this Conference</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</content>

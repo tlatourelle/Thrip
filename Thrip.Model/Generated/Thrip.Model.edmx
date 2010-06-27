@@ -1136,7 +1136,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="Thrip.Model" >
+      <Diagram Name="Thrip.Model" ZoomLevel="85" >
         <EntityTypeShape EntityType="Thrip.Model.Person" Width="1.5" PointX="3" PointY="2.875" Height="2.7494921874999996" />
         <EntityTypeShape EntityType="Thrip.Model.Conference" Width="1.5" PointX="5.375" PointY="6.375" Height="2.9417936197916656" />
         <EntityTypeShape EntityType="Thrip.Model.Session" Width="1.5" PointX="7.5" PointY="4.5" Height="2.7494921874999996" />

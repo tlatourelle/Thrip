@@ -22,6 +22,10 @@ using T4MVC;
 
 [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
 public static class MVC {
+    public static Thrip.Web.Admin.Controllers.BaseController Base = new Thrip.Web.Admin.Controllers.T4MVC_BaseController();
+    public static Thrip.Web.Admin.Controllers.ConferenceController Conference = new Thrip.Web.Admin.Controllers.T4MVC_ConferenceController();
+    public static Thrip.Web.Admin.Controllers.PageController Page = new Thrip.Web.Admin.Controllers.T4MVC_PageController();
+    public static Thrip.Web.Admin.Controllers.SessionController Session = new Thrip.Web.Admin.Controllers.T4MVC_SessionController();
     public static T4MVC.SharedController Shared = new T4MVC.SharedController();
 }
 
@@ -237,6 +241,28 @@ public interface IT4MVCActionResult {
 }   
   
 
+[GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+public class T4MVC_RedirectToRouteResult : System.Web.Mvc.RedirectToRouteResult, IT4MVCActionResult {
+    public T4MVC_RedirectToRouteResult(string area, string controller, string action): base(" ", default(System.Web.Routing.RouteValueDictionary))  {
+        this.InitMVCT4Result(area, controller, action);
+    }
+    
+    public string Controller { get; set; }
+    public string Action { get; set; }
+    public RouteValueDictionary RouteValueDictionary { get; set; }
+}
+[GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+public class T4MVC_ActionResult : System.Web.Mvc.ActionResult, IT4MVCActionResult {
+    public T4MVC_ActionResult(string area, string controller, string action): base()  {
+        this.InitMVCT4Result(area, controller, action);
+    }
+     
+    public override void ExecuteResult(System.Web.Mvc.ControllerContext context) { }
+    
+    public string Controller { get; set; }
+    public string Action { get; set; }
+    public RouteValueDictionary RouteValueDictionary { get; set; }
+}
 
 
 
@@ -275,7 +301,15 @@ namespace Links {
         private const string URLPATH = "~/Content";
         public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
         public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-        public static readonly string Site_css = Url("Site.css");
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public static class css {
+            private const string URLPATH = "~/Content/css";
+            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+            public static readonly string BenevolentDictator_css = Url("BenevolentDictator.css");
+            public static readonly string Site_css = Url("Site.css");
+        }
+    
     }
 
 }

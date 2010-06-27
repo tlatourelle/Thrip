@@ -35,10 +35,10 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Spark">
-      <HintPath>..\Library\Bin\Spark.dll</HintPath>
+      <HintPath>..\Library\Spark\Bin\Spark.dll</HintPath>
     </Reference>
     <Reference Include="Spark.Web.Mvc">
-      <HintPath>..\Library\Bin\Spark.Web.Mvc.dll</HintPath>
+      <HintPath>..\Library\Spark\Bin\Spark.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -74,21 +74,44 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConferenceController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\ConferenceController.cs" />
+    <Compile Include="Controllers\ConferenceController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\FacilitatorController.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Controllers\PageController.cs" />
-    <Compile Include="Controllers\SessionController.cs" />
+    <Compile Include="Controllers\SessionController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FacilitatorController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BaseViewModel.cs" />
     <Compile Include="Models\ConferenceIndexViewModel.cs" />
     <Compile Include="Models\ConferenceDetailViewModel.cs" />
+    <Compile Include="Models\ConferenceListViewModel.cs" />
+    <Compile Include="Models\FacilitatorDetailViewModel.cs" />
+    <Compile Include="Models\FacilitatorListViewModel.cs" />
+    <Compile Include="Models\FacilitatorIndexViewModel.cs" />
     <Compile Include="Models\SessionListViewModel.cs" />
     <Compile Include="PageController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SessionController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
     <Compile Include="SharedController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
@@ -124,6 +147,12 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Views\Facilitator\Detail.spark">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Views\Facilitator\Index.spark">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web.config.Debug.tom">
       <DependentUpon>Web.config.tom</DependentUpon>
     </None>

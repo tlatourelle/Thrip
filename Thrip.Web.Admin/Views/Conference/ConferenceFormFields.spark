@@ -1,0 +1,31 @@
+﻿<viewdata Conference="Thrip.Model.Conference" />
+<dt>
+    <label>Name</label>
+</dt>
+<dd>
+    <input type="text" name="Name" id="Name" value="${Conference.Name}" />
+</dd>
+<dt>
+    <label>Description</label>
+</dt>
+<dd>
+    <textarea name="Description" id="Description">${Conference.Description}</textarea>
+</dd>
+<dt>
+    <label>URL</label>
+</dt>
+<dd>
+    <input type="text" name="URL" id="URL" value="${Conference.URL}" />
+</dd>
+<dt>
+  <label>Start Date</label>
+</dt>
+<dd>
+  <input type="text" name="StartDate" value="${Conference.StartDate.ToShortDateString()}"/>
+</dd>
+<dt>
+  <label>End Date</label>
+</dt>
+<dd>
+  <input type="text" name="EndDate" value="${Conference.EndDate.ToShortDateString()}"/>
+</dd>

@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title>
+			<use content="PageTitle" />
+		</title>
+		<link rel="stylesheet" href="http://cdn.cloudfiles.mosso.com/c29152/BlueprintScreen.css" type="text/css" />
+		<link rel="stylesheet" href="http://cdn.cloudfiles.mosso.com/c29152/BlueprintIE.css" type="text/css" />
+		<link rel="stylesheet" href="/Content/css/BenevolentDictator.css" type="text/css" />
+		<script type="javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		</head>
+	<body>
+		<div class="container" id="BodyContainer">
+			<div  class="span-24 last" id="HeaderContainer">
+					<div id="Header">
+						Thrip Conference Manager Admin
+						<div id="HeaderUserMenu">
+							<use content="HeaderUserMenu"/>
+						</div>
+					</div>
+			</div>
+			<div class="span-24 last" id="MenuContainer">
+				<div id="MainMenu">
+					<ul id="MainMenuList">
+						<use content="MainMenuList" />
+					</ul>
+				</div>
+			</div>
+		
+			<div class="span-24 last" id="MainContentContainer">
+				<div id="MainContent">
+					<use content="MainContent"/>
+				</div>
+			</div>
+			
+			
+			<div class="span-24 last" id="PageFooterContainer">
+					<div id="Footer">
+						<div class="span-12">				
+						 	Thrip is an open source conference manager for technical conferences.
+						</div>
+						<div class="span-12 last" id="CopyrightStatement">
+							Very Few Rights Reserved.
+						</div>
+					</div>
+			</div>
+		</div>
+
+		
+	
+	
+	</body>
+</html>

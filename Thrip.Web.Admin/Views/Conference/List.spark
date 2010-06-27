@@ -1,0 +1,40 @@
+﻿<viewdata model="Thrip.Web.Admin.Models.ConferenceListViewModel" />
+<content name="PageTitle">
+Conference List
+</content>
+<content name="HeaderUserMenu">
+	<use content="UserMenu"/>
+</content>
+<content name="MainMenuList">
+	<use content="MainMenu" />
+</content>
+<content name="MainContent">
+	<div class="span-12">
+		<div class="Section">
+			<div class="SectionHeading">
+				Upcoming Conferences
+			</div>
+			<div class="SectionContent"
+        <ul>
+          <li each="var Conference in Model.Conferences">
+            <a href="/Conference/Edit/${Conference.Id}">${Conference.Name}</a>
+          </li>
+        </ul>
+        
+			</div>
+		</div>
+	</div>
+	<div class="span-12 last">
+		<div class="Section">
+			<div class="SectionHeading">
+				Conference Management
+			</div>
+			<div class="SectionContent">
+				<ul>
+					<li><a href="/Conference/Create">Create new conference</a></li>
+					<li>Find a conference</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</content>

@@ -1,6 +1,3 @@
 <Modules>
-  <Module PersistentId="9DF883D4-0900-4BCC-9B12-85C5772741DE" ModuleId="Thrip.Sandbox" />
-  <Module PersistentId="9A6FA031-BFAD-4B37-88AF-3177B3AEAAFA" ModuleId="Thrip.Model" />
   <Module PersistentId="108C1BE2-5C14-4332-8E9C-EB5C9460A78E" ModuleId="Thrip.Web.Site" />
-  <Module PersistentId="D2A7B1C3-0295-4C6A-BE32-76FF09BF7C25" ModuleId="Thrip.Web.Admin" />
 </Modules>

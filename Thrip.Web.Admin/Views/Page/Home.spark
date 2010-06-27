@@ -1,0 +1,53 @@
+﻿<viewdata model="Thrip.Web.Admin.Models.BaseViewModel" />
+<content name="PageTitle">
+Conference List
+</content>
+<content name="HeaderUserMenu">
+	<use file="UserMenu"/>
+</content>
+<content name="MainMenuList">
+	<use file="MainMenu" />
+</content>
+<content name="MainContent">
+	<div class="span-12">
+		<div class="Section">
+			<div class="SectionHeading">
+				About
+			</div>
+			<div class="SectionContent">
+				This is the back-end administration application for Thrip. From here, you, the organizer of the conference can manage the details.
+			</div>
+		</div>
+	</div>
+	<div class="span-12 last">
+		<div class="Section">
+			<div class="SectionHeading">
+				Conference Management
+			</div>
+			<div class="SectionContent">
+				<ul>
+          <li>
+            <a href="/Conference/List">List conferences</a>
+          </li>
+					<li>
+            <a href="/Conference/Create">Create new conference</a>
+          </li>
+					<li>Find a conference</li>
+				</ul>
+			</div>
+      
+		</div>
+    <div class="Section">
+      <div class="SectionHeading">
+        Session Management
+      </div>
+      <div class="SectionContent">
+        <ul>
+          <li>
+            <a href="/Session/List">All Sessions</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+	</div>
+</content>

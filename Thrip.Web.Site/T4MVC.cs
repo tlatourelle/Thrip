@@ -22,7 +22,11 @@ using T4MVC;
 
 [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
 public static class MVC {
+    public static Thrip.Web.Site.Controllers.BaseController Base = new Thrip.Web.Site.Controllers.T4MVC_BaseController();
+    public static Thrip.Web.Site.Controllers.ConferenceController Conference = new Thrip.Web.Site.Controllers.T4MVC_ConferenceController();
+    public static Thrip.Web.Site.Controllers.FacilitatorController Facilitator = new Thrip.Web.Site.Controllers.T4MVC_FacilitatorController();
     public static Thrip.Web.Site.Controllers.PageController Page = new Thrip.Web.Site.Controllers.T4MVC_PageController();
+    public static Thrip.Web.Site.Controllers.SessionController Session = new Thrip.Web.Site.Controllers.T4MVC_SessionController();
     public static T4MVC.SharedController Shared = new T4MVC.SharedController();
 }
 

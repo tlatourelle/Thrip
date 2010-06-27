@@ -52,7 +52,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extended\" />
-    <Folder Include="Utils\" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Generated\Thrip.Model.edmx">
