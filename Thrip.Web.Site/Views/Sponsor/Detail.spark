@@ -1,0 +1,26 @@
+﻿<viewdata model="Thrip.Web.Site.Models.SponsorDetailViewModel"/>
+<use master="Application" />
+<content name="PageTitle">
+Thrip Conference Manager: Speaker Info
+</content>
+<content name="Header">
+<h1>${Model.Sponsor.FirstName} ${Model.Sponsor.LastName}</h1>
+</content>
+<content name="MainContent">
+  <div>
+    <p>${Model.Sponsor.Biography}</p>
+	</div>
+
+  <div>
+    <h2>Sessons</h2>
+    <div each="var session in Model.Sessions">
+      <h3>${session.name}</h3>
+      <p>${session.description}</p>
+      <a href="/Session/Detail/${Model.Session.Id}">info</a>
+    </div>
+  </div>
+
+</content>
+<content name="Footer">
+Copyright &copy; 2010
+</content>

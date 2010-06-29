@@ -1,0 +1,25 @@
+﻿<viewdata model="Thrip.Web.Site.Models.SessionDetailViewModel"/>
+<use master="Application" />
+<content name="PageTitle">
+  Thrip Conference Manager: Session Information
+</content>
+<content name="Header">
+  <h1>Session Info</h1>
+</content>
+<content name="MainContent">
+  <h2>${Model.Session.Name}</h2>
+  <p>${Model.Session.Description}</p>
+  
+    <p if="Session.ScheduledSessions.Count > 0">
+      Currently Scheduled in:
+      <ul>
+        <li each="var ScheduledSession in Session.ScheduledSessions">
+          ${ScheduledSession.Location.Name} for ${ScheduledSession.TimeSlot.Name} from ${ScheduledSession.TimeSlot.StartDate} to ${ScheduledSession.TimeSlot.EndDate}
+        </li>
+      </ul>
+    </p>
+
+</content>
+<content name="Footer">
+  Thrip Conference Manager
+</content>

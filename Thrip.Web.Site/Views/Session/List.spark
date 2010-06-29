@@ -7,9 +7,7 @@ Thrip Conference Manager: Session List
 <h1>Upcoming Conferences</h1>
 </content>
 <content name="MainContent">
-    <h2>${Model.Conference.Name}</h2>
-    <p>${Model.Conference.Description}</p>
-    <h3>Sessions</h3>
+
 	<div each="var Session in Model.Sessions">
     <p>
       <b>${Session.Name}</b>
@@ -17,15 +15,10 @@ Thrip Conference Manager: Session List
     <p>
       ${Session.Description}
     </p>
-    <p if="Session.ScheduledSessions.Count > 0">
-      Currently Scheduled in:
-      <ul>
-        <li each="var ScheduledSession in Session.ScheduledSessions">
-          ${ScheduledSession.Location.Name} for ${ScheduledSession.TimeSlot.Name} from ${ScheduledSession.TimeSlot.StartDate} to ${ScheduledSession.TimeSlot.EndDate}
-        </li>
-      </ul>
+    <p>
+      <a href="/Session/Detail/${Session.Id}">${Session.Name}</a>
     </p>
-	</div>
+  </div>
 </content>
 <content name="Footer">
 Thrip Conference Manager

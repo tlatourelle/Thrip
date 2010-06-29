@@ -1,3 +1,4 @@
 <Modules>
   <Module PersistentId="108C1BE2-5C14-4332-8E9C-EB5C9460A78E" ModuleId="Thrip.Web.Site" />
+  <Module PersistentId="9A6FA031-BFAD-4B37-88AF-3177B3AEAAFA" ModuleId="Thrip.Model" />
 </Modules>

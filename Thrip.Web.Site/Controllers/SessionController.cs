@@ -22,5 +22,17 @@ namespace Thrip.Web.Site.Controllers
             return View(_viewModel);
         }
 
+
+        public virtual ActionResult Detail(Guid id)
+        {
+            //id is the session id
+            var _session = DataContext.Sessions.SingleOrDefault(s => s.Id == id);
+            var _viewModel = new SessionDetailViewModel();
+            _viewModel.Session = _session;
+
+            return View(_viewModel);
+        }
+
+
     }
 }

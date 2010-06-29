@@ -84,6 +84,7 @@
     <Compile Include="Controllers\ConferenceController.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controllers\SponsorController.cs" />
     <Compile Include="Controllers\FacilitatorController.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -98,12 +99,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BaseViewModel.cs" />
-    <Compile Include="Models\ConferenceIndexViewModel.cs" />
     <Compile Include="Models\ConferenceDetailViewModel.cs" />
     <Compile Include="Models\ConferenceListViewModel.cs" />
+    <Compile Include="Models\SponsorListViewModel.cs" />
+    <Compile Include="Models\SponsorDetailViewModel.cs" />
+    <Compile Include="Models\SessionDetailViewModel.cs" />
     <Compile Include="Models\FacilitatorDetailViewModel.cs" />
     <Compile Include="Models\FacilitatorListViewModel.cs" />
-    <Compile Include="Models\FacilitatorIndexViewModel.cs" />
     <Compile Include="Models\SessionListViewModel.cs" />
     <Compile Include="PageController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
@@ -122,6 +124,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\BenevolentDictator.css" />
+    <Content Include="Content\css\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Web.config" />
@@ -147,10 +151,19 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Views\Sponsor\Detail.spark">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Views\Sponsor\List.spark">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Views\Facilitator\Detail.spark">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Views\Facilitator\Index.spark">
+    <None Include="Views\Facilitator\List.spark">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Views\Session\Detail.spark">
       <SubType>Designer</SubType>
     </None>
     <None Include="Web.config.Debug.tom">
@@ -175,7 +188,7 @@
     <None Include="Views\Conference\Detail.spark">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Views\Conference\Index.spark">
+    <None Include="Views\Conference\List.spark">
       <SubType>Designer</SubType>
     </None>
     <None Include="Views\Page\Home.spark">

@@ -38,6 +38,11 @@ namespace Thrip.Web.Site.Controllers {
         public System.Web.Mvc.ActionResult List() {
             return new T4MVC_ActionResult(Area, Name, ActionNames.List);
         }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public System.Web.Mvc.ActionResult Detail() {
+            return new T4MVC_ActionResult(Area, Name, ActionNames.Detail);
+        }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public SessionController Actions { get { return MVC.Session; } }
@@ -52,6 +57,7 @@ namespace Thrip.Web.Site.Controllers {
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionNamesClass {
             public readonly string List = "List";
+            public readonly string Detail = "Detail";
         }
 
 
@@ -60,6 +66,7 @@ namespace Thrip.Web.Site.Controllers {
         public ViewNames Views { get { return s_views; } }
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ViewNames {
+            public readonly string Detail = "~/Views/Session/Detail.spark";
             public readonly string List = "~/Views/Session/List.spark";
         }
     }
@@ -70,6 +77,12 @@ namespace Thrip.Web.Site.Controllers {
 
         public override System.Web.Mvc.ActionResult List(System.Guid id) {
             var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.List);
+            callInfo.RouteValueDictionary.Add("id", id);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult Detail(System.Guid id) {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Detail);
             callInfo.RouteValueDictionary.Add("id", id);
             return callInfo;
         }

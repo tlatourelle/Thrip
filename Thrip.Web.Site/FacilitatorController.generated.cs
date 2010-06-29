@@ -35,8 +35,8 @@ namespace Thrip.Web.Site.Controllers {
 
         [NonAction]
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public System.Web.Mvc.ActionResult Index() {
-            return new T4MVC_ActionResult(Area, Name, ActionNames.Index);
+        public System.Web.Mvc.ActionResult List() {
+            return new T4MVC_ActionResult(Area, Name, ActionNames.List);
         }
         [NonAction]
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -56,7 +56,7 @@ namespace Thrip.Web.Site.Controllers {
         public ActionNamesClass ActionNames { get { return s_actions; } }
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionNamesClass {
-            public readonly string Index = "Index";
+            public readonly string List = "List";
             public readonly string Detail = "Detail";
         }
 
@@ -67,7 +67,7 @@ namespace Thrip.Web.Site.Controllers {
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ViewNames {
             public readonly string Detail = "~/Views/Facilitator/Detail.spark";
-            public readonly string Index = "~/Views/Facilitator/Index.spark";
+            public readonly string List = "~/Views/Facilitator/List.spark";
         }
     }
 
@@ -75,8 +75,8 @@ namespace Thrip.Web.Site.Controllers {
     public class T4MVC_FacilitatorController: Thrip.Web.Site.Controllers.FacilitatorController {
         public T4MVC_FacilitatorController() : base(Dummy.Instance) { }
 
-        public override System.Web.Mvc.ActionResult Index(System.Guid id) {
-            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Index);
+        public override System.Web.Mvc.ActionResult List(System.Guid id) {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.List);
             callInfo.RouteValueDictionary.Add("id", id);
             return callInfo;
         }

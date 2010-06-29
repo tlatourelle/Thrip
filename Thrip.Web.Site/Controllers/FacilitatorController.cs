@@ -10,10 +10,11 @@ namespace Thrip.Web.Site.Controllers
     public partial class FacilitatorController : BaseController
     {
 
-        public virtual ActionResult Index(Guid id)
+        public virtual ActionResult List(Guid id)
         {
+            // id is the conference id
             var _conference = DataContext.Conferences.SingleOrDefault(c => c.Id == id);
-            var _viewModel = new FacilitatorIndexViewModel();
+            var _viewModel = new FacilitatorListViewModel();
             _viewModel.Facilitators = _conference.Facilitators.ToList();
             return View(_viewModel);
         }

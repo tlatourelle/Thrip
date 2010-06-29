@@ -8,6 +8,7 @@ namespace Thrip.Web.Site.Models
 {
     public class FacilitatorListViewModel :BaseViewModel
     {
+        public Conference Conference { get; set; }
         public List<Person> Facilitators { get; set; }
     }
 }

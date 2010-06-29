@@ -7,7 +7,7 @@ Thrip Conference Manager
 </content>
 <content name="MainContent">
 <p>Welcome to Thrip</p>
-<p><a href="/Conference/Index">Conference List</a></p>
+<p><a href="/Conference/List">Conference List</a></p>
 </content>
 <content name="Footer">
 Copyright &copy; 2010

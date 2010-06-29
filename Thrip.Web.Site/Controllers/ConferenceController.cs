@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using Thrip.Web.Site.Models;
@@ -9,13 +10,11 @@ namespace Thrip.Web.Site.Controllers
 {
     public partial class ConferenceController : BaseController
     {
-        //
-        // GET: /Conference/
 
-        public virtual ActionResult Index()
+        public virtual ActionResult List()
         {
             var _upcomingConferences = DataContext.Conferences.Where(c => c.StartDate > DateTime.Now).ToList();
-            var _viewModel = new ConferenceIndexViewModel();
+            var _viewModel = new ConferenceListViewModel();
             _viewModel.Conferences = _upcomingConferences;
             return View(_viewModel);
         }

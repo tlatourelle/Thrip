@@ -9,15 +9,15 @@
   </SettingsComponent>
   <CompletionStatisticsManager>
     <ItemStatistics item="Default">
-      <Item value="Conference`0" priority="0" />
+      <Item value="Conference`0" priority="1" />
       <Item value="var" priority="4" />
       <Item value="dataContext" priority="4" />
       <Item value="c" priority="2" />
-      <Item value="_session" priority="0" />
+      <Item value="_session" priority="1" />
       <Item value="_conference" priority="4" />
       <Item value="BaseViewModel`0" priority="0" />
       <Item value="List" priority="0" />
-      <Item value="new" priority="1" />
+      <Item value="new" priority="2" />
       <Item value="private" priority="0" />
       <Item value="public" priority="0" />
       <Item value="BaseController`0" priority="0" />
@@ -29,8 +29,8 @@
       <Item value="Guid`0" priority="2" />
       <Item value="IViewDataContainer`0" priority="0" />
       <Item value="Session`0" priority="0" />
-      <Item value="Person`0" priority="0" />
-      <Item value="Sponsor`0" priority="0" />
+      <Item value="Person`0" priority="1" />
+      <Item value="Sponsor`0" priority="2" />
       <Item value="select" priority="0" />
       <Item value="foreach" priority="1" />
       <Item value="in" priority="0" />
@@ -43,11 +43,17 @@
       <Item value="x" priority="1" />
       <Item value="_facilitator" priority="1" />
       <Item value="facilitator" priority="2" />
+      <Item value="NotImplementedException`0" priority="1" />
+      <Item value="throw" priority="0" />
+      <Item value="AbandonedMutexException" priority="0" />
+      <Item value="Exception`0" priority="0" />
+      <Item value="Conferences" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Thrip.Model.ThripEntities">
       <Item value="Conferences" priority="3" />
       <Item value="SaveChanges`0" priority="1" />
       <Item value="People" priority="0" />
+      <Item value="Sessions" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Data.Objects.ObjectSet`1">
       <Item value="Where`0" priority="2" />
@@ -101,17 +107,12 @@
       <Item value="Biography" priority="0" />
       <Item value="Sessions" priority="0" />
     </ItemStatistics>
+    <ItemStatistics item="Qualified:Thrip.Web.Site.Models.SessionDetailViewModel">
+      <Item value="Sessions" priority="0" />
+    </ItemStatistics>
   </CompletionStatisticsManager>
   <RecentFiles>
     <RecentFiles>
-      <File id="9DF883D4-0900-4BCC-9B12-85C5772741DE/f:Program.cs" caret="406" fromTop="8" />
-      <File id="D2A7B1C3-0295-4C6A-BE32-76FF09BF7C25/d:Controllers/f:BaseController.cs" caret="0" fromTop="0" />
-      <File id="D2A7B1C3-0295-4C6A-BE32-76FF09BF7C25/d:Controllers/f:ConferenceController.cs" caret="0" fromTop="0" />
-      <File id="D2A7B1C3-0295-4C6A-BE32-76FF09BF7C25/d:Controllers/f:SessionController.cs" caret="0" fromTop="0" />
-      <File id="D2A7B1C3-0295-4C6A-BE32-76FF09BF7C25/d:Controllers/f:PageController.cs" caret="0" fromTop="0" />
-      <File id="D2A7B1C3-0295-4C6A-BE32-76FF09BF7C25/f:Web.config" caret="0" fromTop="0" />
-      <File id="D2A7B1C3-0295-4C6A-BE32-76FF09BF7C25/d:Models/f:ConferenceListViewModel.cs" caret="0" fromTop="0" />
-      <File id="D2A7B1C3-0295-4C6A-BE32-76FF09BF7C25/d:Models/f:ConferenceEditViewModel.cs" caret="0" fromTop="0" />
       <File id="D2A7B1C3-0295-4C6A-BE32-76FF09BF7C25/d:Models/f:BaseViewModel.cs" caret="0" fromTop="0" />
       <File id="D2A7B1C3-0295-4C6A-BE32-76FF09BF7C25/f:Global.asax.cs" caret="0" fromTop="0" />
       <File id="D2A7B1C3-0295-4C6A-BE32-76FF09BF7C25/d:Scripts/f:jquery-1.4.1.js" caret="136867" fromTop="19" />
@@ -119,39 +120,61 @@
       <File id="D2A7B1C3-0295-4C6A-BE32-76FF09BF7C25/d:Content/d:css/f:BenevolentDictator.css" caret="3622" fromTop="21" />
       <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/f:T4MVC.settings.t4" caret="3766" fromTop="30" />
       <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Models/f:ConferenceDetailViewModel.cs" caret="202" fromTop="8" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Session/f:List.spark" caret="0" fromTop="0" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Conference/f:Index.spark" caret="0" fromTop="0" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Models/f:ConferenceIndexViewModel.cs" caret="0" fromTop="0" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Models/f:FacilitatorDetailViewModel.cs" caret="313" fromTop="13" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Models/f:FacilitatorIndexViewModel.cs" caret="257" fromTop="9" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Conference/f:Detail.spark" caret="1220" fromTop="15" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Facilitator/f:Index.spark" caret="64" fromTop="0" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Facilitator/f:Detail.spark" caret="593" fromTop="6" />
       <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/f:T4MVC.tt" caret="651" fromTop="16" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Models/f:FacilitatorListViewModel.cs" caret="201" fromTop="8" />
       <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/f:Global.asax.cs" caret="181" fromTop="8" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Facilitator/f:Detail.spark" caret="375" fromTop="12" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:PageController.cs" caret="0" fromTop="0" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Models/f:ConferenceListViewModel.cs" caret="0" fromTop="0" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Session/f:Detail.spark" caret="599" fromTop="15" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Models/f:SessionDetailViewModel.cs" caret="255" fromTop="10" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:ConferenceController.cs" caret="610" fromTop="7" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Conference/f:Detail.spark" caret="0" fromTop="0" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:SessionController.cs" caret="196" fromTop="4" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Models/f:FacilitatorListViewModel.cs" caret="0" fromTop="0" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Models/f:FacilitatorDetailViewModel.cs" caret="0" fromTop="0" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Facilitator/f:List.spark" caret="95" fromTop="0" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Models/f:SessionListViewModel.cs" caret="0" fromTop="0" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Conference/f:List.spark" caret="0" fromTop="0" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Session/f:List.spark" caret="233" fromTop="6" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Page/f:Home.spark" caret="242" fromTop="8" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Sponsor/f:Detail.spark" caret="0" fromTop="0" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Sponsor/f:List.spark" caret="0" fromTop="0" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Models/f:SponsorListViewModel.cs" caret="273" fromTop="10" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Models/f:SponsorDetailViewModel.cs" caret="380" fromTop="11" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:FacilitatorController.cs" caret="349" fromTop="13" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:SponsorController.cs" caret="710" fromTop="21" />
     </RecentFiles>
     <RecentEdits>
-      <File id="9DF883D4-0900-4BCC-9B12-85C5772741DE/f:Program.cs" caret="6768" fromTop="16" />
-      <File id="9DF883D4-0900-4BCC-9B12-85C5772741DE/f:Program.cs" caret="9044" fromTop="28" />
-      <File id="9DF883D4-0900-4BCC-9B12-85C5772741DE/f:Program.cs" caret="8220" fromTop="6" />
-      <File id="9DF883D4-0900-4BCC-9B12-85C5772741DE/f:Program.cs" caret="12878" fromTop="10" />
-      <File id="9DF883D4-0900-4BCC-9B12-85C5772741DE/f:Program.cs" caret="8397" fromTop="10" />
-      <File id="9DF883D4-0900-4BCC-9B12-85C5772741DE/f:Program.cs" caret="8952" fromTop="16" />
-      <File id="9DF883D4-0900-4BCC-9B12-85C5772741DE/f:Program.cs" caret="9031" fromTop="17" />
-      <File id="9DF883D4-0900-4BCC-9B12-85C5772741DE/f:Program.cs" caret="1163" fromTop="25" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/f:T4MVC.tt" caret="59322" fromTop="30" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Conference/f:Detail.spark" caret="655" fromTop="19" />
       <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Models/f:ConferenceDetailViewModel.cs" caret="335" fromTop="11" />
       <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Conference/f:Detail.spark" caret="538" fromTop="13" />
       <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Models/f:FacilitatorDetailViewModel.cs" caret="173" fromTop="7" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Models/f:FacilitatorIndexViewModel.cs" caret="257" fromTop="9" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Facilitator/f:Index.spark" caret="462" fromTop="12" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Facilitator/f:List.spark" caret="461" fromTop="12" />
       <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Facilitator/f:Detail.spark" caret="258" fromTop="5" />
       <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Facilitator/f:Detail.spark" caret="353" fromTop="9" />
       <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Facilitator/f:Detail.spark" caret="593" fromTop="6" />
       <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/f:T4MVC.tt" caret="59322" fromTop="16" />
-      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Models/f:FacilitatorListViewModel.cs" caret="237" fromTop="8" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:ConferenceController.cs" caret="612" fromTop="18" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Conference/f:List.spark" caret="53" fromTop="0" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:ConferenceController.cs" caret="314" fromTop="1" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:ConferenceController.cs" caret="537" fromTop="5" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Session/f:Detail.spark" caret="776" fromTop="9" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Session/f:Detail.spark" caret="776" fromTop="0" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Session/f:Detail.spark" caret="341" fromTop="10" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Session/f:Detail.spark" caret="704" fromTop="20" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Session/f:List.spark" caret="263" fromTop="8" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Session/f:List.spark" caret="431" fromTop="15" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:SessionController.cs" caret="1030" fromTop="30" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:SessionController.cs" caret="993" fromTop="27" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Models/f:SessionDetailViewModel.cs" caret="255" fromTop="10" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Models/f:FacilitatorListViewModel.cs" caret="253" fromTop="9" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Page/f:Home.spark" caret="242" fromTop="8" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Views/d:Facilitator/f:List.spark" caret="54" fromTop="0" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:SponsorController.cs" caret="0" fromTop="0" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Models/f:SponsorDetailViewModel.cs" caret="398" fromTop="11" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Models/f:SponsorListViewModel.cs" caret="277" fromTop="10" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:SponsorController.cs" caret="274" fromTop="10" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:SponsorController.cs" caret="710" fromTop="21" />
+      <File id="108C1BE2-5C14-4332-8E9C-EB5C9460A78E/d:Controllers/f:FacilitatorController.cs" caret="349" fromTop="13" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>

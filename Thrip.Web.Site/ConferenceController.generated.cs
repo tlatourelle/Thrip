@@ -51,7 +51,7 @@ namespace Thrip.Web.Site.Controllers {
         public ActionNamesClass ActionNames { get { return s_actions; } }
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionNamesClass {
-            public readonly string Index = "Index";
+            public readonly string List = "List";
             public readonly string Detail = "Detail";
         }
 
@@ -62,7 +62,7 @@ namespace Thrip.Web.Site.Controllers {
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ViewNames {
             public readonly string Detail = "~/Views/Conference/Detail.spark";
-            public readonly string Index = "~/Views/Conference/Index.spark";
+            public readonly string List = "~/Views/Conference/List.spark";
         }
     }
 
@@ -70,8 +70,8 @@ namespace Thrip.Web.Site.Controllers {
     public class T4MVC_ConferenceController: Thrip.Web.Site.Controllers.ConferenceController {
         public T4MVC_ConferenceController() : base(Dummy.Instance) { }
 
-        public override System.Web.Mvc.ActionResult Index() {
-            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Index);
+        public override System.Web.Mvc.ActionResult List() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.List);
             return callInfo;
         }
 
